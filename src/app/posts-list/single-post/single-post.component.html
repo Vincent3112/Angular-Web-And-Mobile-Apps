@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-xs-12">
+    <table class="table">
+      <tr>
+        <h1> Titre :  {{ post.title }} </h1>
+      </tr>
+      <tr>
+        <h3> Contenu : <h4> {{ post.content }} </h4></h3>
+      </tr>
+      <br>
+      <br>
+      <tr>
+        Likes : {{post.likes}}
+      </tr>
+      <br>
+      <tr>
+        Dislikes : {{post.unlikes}}
+      </tr>
+    </table>
+    <br>
+    <button class="btn btn-primary pull-right" (click)="onBack()">  Retour </button>
+  </div>
+</div>

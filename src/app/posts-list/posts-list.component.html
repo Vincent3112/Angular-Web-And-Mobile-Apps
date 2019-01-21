@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h2>My Posts</h2>
+    <form class="form-inline pull-right" autocomplete="off">
+      <div class="form-group mx-sm-3 mb-2 layout-align">
+        <input [(ngModel)]="searchPost" name="title" type="text" class="form-control pull-right mac-style" placeholder="Search by title">
+      </div>
+    </form>
+    <br>
+    <br>
+    <h4 *ngIf="filteredPosts.length ===0"> Sorry ! Your request does not match any post title ! </h4>
+    <table class="table">
+        <tr *ngFor="let post of filteredPosts; let i = index "
+                [ngClass]="{'list-group-item': true,
+                'list-group-item-success': this.post.likes > this.post.unlikes,
+                'list-group-item-danger': this.post.likes < this.post.unlikes}">
+          <p class="pull-right">{{ getDate() | date: 'dd MMM yyyy' }}</p>
+          <h3> {{ post.title }} </h3>
+          <p> {{ post.content }}</p>
+          <button class="btn btn-success"
+                  (click)="like(post)"> {{ post.likes }} Like </button>
+          <button class="btn btn-danger"
+                  (click)="unlike(post)">  {{ post.unlikes }}  Don't like </button>
+          <button class="btn btn-primary pull-right"
+                  (click)="onDeletePost(post)"> Supprimer le post </button>
+          <button class = "btn btn-success pull-right"
+                  (click)="onViewPost(i)"> Observer le post </button>
+        </tr>
+    </table>
+    <button class="btn btn-primary" (click)="onNewPost()"> Ajouter un post </button>
+    <br>
+    <br>
+  </div>
+</div>
+
+
