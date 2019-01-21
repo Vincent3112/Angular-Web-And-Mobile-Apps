@@ -63,10 +63,14 @@ export class PostsListComponent implements OnInit , OnDestroy{
 
   like(post) {
     post.likes += 1;
+    this.postsService.savePost();
+    this.postsService.emitPosts();
   }
 
   unlike(post) {
     post.unlikes += 1;
+    this.postsService.savePost();
+    this.postsService.emitPosts();
   }
 
   getDate() {
