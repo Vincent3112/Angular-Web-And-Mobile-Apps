@@ -1,11 +1,46 @@
 <div class="row">
   <div class="col-xs-12">
     <h2>My Posts</h2>
-    <form class="form-inline pull-right" autocomplete="off">
-      <div class="form-group mx-sm-3 mb-2 layout-align">
-        <input [(ngModel)]="searchPost" name="title" type="text" class="form-control pull-right mac-style" placeholder="Search by title">
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          Search post by Title
+        </div>
+        <div class="col-sm-4">
+          Search by content
+        </div>
+        <div class="col-sm-4">
+          Likes Greater Than
+        </div>
+
       </div>
-    </form>
+      <div class="row">
+        <div class="col-sm-4">
+          <input [(ngModel)]="searchPost"
+                 name="title"
+                 type="text"
+                 class="form-control mac-style"
+                 placeholder="Search by title"
+                 autocomplete="off">
+        </div>
+        <div class="col-sm-4">
+          <input [(ngModel)]="searchPostByContent"
+                 name="title"
+                 type="text"
+                 class="form-control mac-style"
+                 placeholder="Search by content"
+                 autocomplete="off">
+        </div>
+        <div class="col-sm-4">
+          <input class="form-control mac-style"
+                 autocomplete="off"
+                 type="number"
+                 [(ngModel)]="likes"
+                 (change)="filterGreaterThan('likes', likes)">
+        </div>
+      </div>
+    </div>
     <br>
     <br>
     <h4 *ngIf="filteredPosts.length ===0"> Sorry ! Your request does not match any post title ! </h4>

@@ -4,6 +4,7 @@ import {Subscription} from 'rxjs';
 import {PostsService} from '../services/posts.service';
 import {Router} from '@angular/router';
 import {FormControl, FormGroup} from '@angular/forms';
+import * as _ from 'lodash';
 
 
 
@@ -24,9 +25,22 @@ export class PostsListComponent implements OnInit , OnDestroy{
   @Input() likes;
   @Input() unlikes;
 
+  filters = {};
 
   private _searchPost: string;
-  // @ts-ignore
+
+  private _searchPostByContent: string;
+
+
+  private applyFilters() {
+    this.filteredPosts = _.filter(this.posts, _.conforms(this.filters));
+  }
+
+  filterGreaterThan(property: string, rule: number){
+    this.filters[property] = val => val > rule;
+    this.applyFilters();
+  }
+
   get searchPost(): string {
     return this._searchPost;
   }
@@ -35,8 +49,20 @@ export class PostsListComponent implements OnInit , OnDestroy{
     this.filteredPosts = this.filterPosts(value);
   }
 
+  get searchPostByContent(): string {
+    return this._searchPostByContent;
+  }
+  set searchPostByContent(value: string) {
+    this._searchPostByContent = value;
+    this.filteredPosts = this.filterPostsByContent(value);
+  }
+
   filterPosts(searchString: string) {
     return this.posts.filter(posts => posts.title.toLowerCase().indexOf(searchString.toLocaleLowerCase()) !== -1);
+  }
+
+  filterPostsByContent(searchString: string) {
+    return this.posts.filter(posts => posts.content.toLowerCase().indexOf(searchString.toLocaleLowerCase()) !== -1);
   }
 
   constructor(private postsService: PostsService, private router: Router) { }
