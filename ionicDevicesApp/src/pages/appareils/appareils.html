@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button icon-only (click)="onToggleMenu()">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Appareils</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <button ion-item
+            icon-start
+            *ngFor="let appareil of appareilsList; let i = index"
+            (click)="onLoadAppareil(i)">
+      <ion-icon name="power" [color]="appareil.isOn ? 'secondary' : 'danger'"></ion-icon>
+      {{ appareil.name }}
+    </button>
+  </ion-list>
+  <button ion-button full  (click)="onNewAppareil()"> Nouvel appareil </button>
+  <ion-card>
+    <ion-card-header>Données</ion-card-header>
+    <ion-card-content>
+      <button ion-button block outline (click)="onSaveList()"> Enregistrer </button>
+      <button ion-button block outline (click)="onFetchList()"> Récupérer </button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+
+<ion-footer padding>
+  <p> Bas de page</p>
+</ion-footer>

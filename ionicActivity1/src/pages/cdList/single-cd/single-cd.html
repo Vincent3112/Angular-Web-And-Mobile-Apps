@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons>
+      <button ion-button (click)="dismissModal()"> Fermer </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card [color]="!cd.isLent ? 'secondary-light' : 'danger-light'">
+    <ion-card-header> {{ cd.name }} </ion-card-header>
+    <ion-card-content>
+      <p> Artiste : {{ cd.artiste }} </p>
+      <p> Prix : {{ cd.prix }} </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button ion-button
+                full
+                color="primary"
+                [disabled]="!cd.isLent"
+                (click)="onToggleCd()"> Rendu </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button
+                full
+                color="primary"
+                [disabled]="cd.isLent"
+                (click)="onToggleCd()"> Prêté </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

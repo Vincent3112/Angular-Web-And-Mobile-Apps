@@ -1,0 +1,33 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <button ion-item icon-start (click)="onNavigate(settingsPage)" *ngIf="isAuth">
+        <ion-icon name="options"></ion-icon>
+        Settings
+      </button>
+      <button ion-item icon-start (click)="onNavigate(tabsPage)" *ngIf="isAuth">
+        <ion-icon name="home"></ion-icon>
+        Home
+      </button>
+      <button ion-item icon-start (click)="onNavigate(authPage, {mode: 'new'})" *ngIf="!isAuth">
+        <ion-icon name="person-add"></ion-icon>
+        New User
+      </button>
+      <button ion-item icon-start (click)="onNavigate(authPage, {mode: 'connect'})" *ngIf="!isAuth">
+        <ion-icon name="person"></ion-icon>
+        Log In
+      </button>
+      <button ion-item icon-start (click)="onDisconnect()" *ngIf="isAuth">
+        <ion-icon name="exit"></ion-icon>
+        Log Out
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav [root]="tabsPage" #content></ion-nav>

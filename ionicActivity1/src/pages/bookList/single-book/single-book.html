@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons>
+      <button ion-button (click)="dismissModal()"> Fermer </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card [color]="!book.isLent ? 'secondary-light' : 'danger-light'">
+    <ion-card-header> {{ book.name }}</ion-card-header>
+    <ion-card-content>
+      <p> Auteur : {{ book.auteur}}</p>
+      <p> Prix : {{book.prix}} euros</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button ion-button
+                full
+                color="primary"
+                [disabled]="!book.isLent"
+                (click)="onToggleBook()"> Rendu </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button
+                full
+                color="primary"
+                [disabled]="book.isLent"
+                (click)="onToggleBook()"> Prêté </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
