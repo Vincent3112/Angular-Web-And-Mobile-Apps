@@ -12,8 +12,13 @@
     <ion-card-content>
       <p> Auteur : {{ book.auteur}}</p>
       <p> Prix : {{book.prix}} euros</p>
+
+      <p *ngIf="book.isLent">Ce livre est emprunté par {{book.loueur}}</p>
+      <p *ngIf="!book.isLent">Ce livre est disponible</p>
     </ion-card-content>
   </ion-card>
+
+  <form ></form>
 
   <ion-grid>
     <ion-row>

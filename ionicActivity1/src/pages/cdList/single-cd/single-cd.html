@@ -12,6 +12,8 @@
     <ion-card-content>
       <p> Artiste : {{ cd.artiste }} </p>
       <p> Prix : {{ cd.prix }} </p>
+      <p *ngIf="cd.isLent">Ce CD est emprunté par {{cd.loueur}}</p>
+      <p *ngIf="!cd.isLent">Ce CD est disponible</p>
     </ion-card-content>
   </ion-card>
 

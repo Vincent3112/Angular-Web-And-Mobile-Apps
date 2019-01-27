@@ -1,7 +1,7 @@
 import {Component} from "@angular/core";
 import {Book} from "../../../models/Book";
 import {ArticlesService} from "../../../services/articles.service";
-import {NavParams, ViewController} from "ionic-angular";
+import {AlertController, NavParams, ToastController, ViewController} from "ionic-angular";
 
 @Component({
   selector: 'page-single-book',
@@ -16,7 +16,9 @@ export class SingleBookPage {
 
   constructor(private articleService: ArticlesService,
               public navParams: NavParams,
-              private viewController: ViewController) {
+              private viewController: ViewController,
+              private alertCtrl: AlertController,
+              private toastCtrl: ToastController) {
 
   }
 
@@ -31,6 +33,47 @@ export class SingleBookPage {
 
 
   onToggleBook() {
-    this.book.isLent = !this.book.isLent;
+
+    if(this.book.isLent){
+      this.book.isLent = !this.book.isLent;
+      this.book.loueur = '';
+    } else  {
+
+    let alert = this.alertCtrl.create({
+      title: 'Enter the name of the renter',
+      inputs: [
+        {
+          name: 'loueur'
+        }
+      ],
+      buttons: [
+        {
+          text:'Annuler',
+          role: 'cancel'
+        },
+        {
+          text: 'Confirmer',
+          handler: data => {
+            if(data.loueur !== ''){
+              this.book.loueur = data.loueur;
+              this.book.isLent = !this.book.isLent
+            } else {
+              this.showErrorToast('Invalid name, please enter the name of the renter')
+            }
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+  }
+
+  showErrorToast(data: string) {
+    let toast = this.toastCtrl.create({
+      message: data,
+      duration: 3000,
+      position: 'middle'
+    });
+    toast.present();
   }
 }

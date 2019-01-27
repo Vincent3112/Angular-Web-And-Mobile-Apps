@@ -5,6 +5,7 @@ import {MenuController, ModalController} from "ionic-angular";
 import {SingleBookPage} from "./single-book/single-book";
 import {TabsPage} from "../tabs/tabs";
 import {CD} from "../../models/CD";
+import {listenToElementOutputs} from "@angular/core/src/view/element";
 
 @Component({
   selector: 'page-bookList',
@@ -39,7 +40,7 @@ export class bookListPage {
 
   getStatut(book: Book) {
     if(book.isLent){
-      return 'en prêt';
+      return 'emprunté par ' + book.loueur;
     } else {
       return 'en stock';
     }

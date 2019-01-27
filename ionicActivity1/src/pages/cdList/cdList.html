@@ -15,8 +15,8 @@
     <button ion-item
             *ngFor="let cd of cdList; let i= index"
             (click)="onLoadCd(i)"
-            [color]="!cd.isLent ? 'secondary-light' : 'danger-light'"> {{ cd.name }}
-      <p class="statut"> {{getStatut(cd)}}</p>
+            [color]="!cd.isLent ? 'secondary-light' : 'danger-light'"> {{ cd.name }} - {{cd.artiste}}
+      <p class="statut"> {{getStatut(cd)}} </p>
     </button>
 
   </ion-list>

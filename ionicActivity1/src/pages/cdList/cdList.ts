@@ -31,7 +31,7 @@ export class cdListPage {
 
   getStatut(cd: CD) {
     if(cd.isLent){
-      return 'en prêt';
+      return 'emprunté par ' + cd.loueur;
     } else {
       return 'en stock';
     }

@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
 import {ArticlesService} from "../../../services/articles.service";
-import {NavParams, ViewController} from "ionic-angular";
+import {AlertController, NavParams, ToastController, ViewController} from "ionic-angular";
 import {CD} from "../../../models/CD";
 
 @Component({
@@ -15,7 +15,9 @@ export class SingleCdPage {
 
   constructor(private articleService: ArticlesService,
               public viewCtrl: ViewController,
-              public navParams: NavParams) {
+              public navParams: NavParams,
+              private alertCtrl: AlertController,
+              private toastCtrl: ToastController) {
 
   }
 
@@ -29,6 +31,47 @@ export class SingleCdPage {
   }
 
   onToggleCd() {
-    this.cd.isLent = !this.cd.isLent;
+
+    if(this.cd.isLent){
+      this.cd.isLent = !this.cd.isLent;
+      this.cd.loueur = '';
+    } else  {
+
+      let alert = this.alertCtrl.create({
+        title: 'Enter the name of the renter',
+        inputs: [
+          {
+            name: 'loueur'
+          }
+        ],
+        buttons: [
+          {
+            text:'Annuler',
+            role: 'cancel'
+          },
+          {
+            text: 'Confirmer',
+            handler: data => {
+              if(data.loueur !== ''){
+                this.cd.loueur = data.loueur;
+                this.cd.isLent = !this.cd.isLent
+              } else {
+                this.showErrorToast('Invalid name, please enter the name of the renter')
+              }
+            }
+          }
+        ]
+      });
+      alert.present();
+    }
+  }
+
+  showErrorToast(data: string) {
+    let toast = this.toastCtrl.create({
+      message: data,
+      duration: 3000,
+      position: 'middle'
+    });
+    toast.present();
   }
 }

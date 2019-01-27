@@ -14,8 +14,8 @@
     <button ion-item
             [color]="!book.isLent ? 'secondary-light' : 'danger-light'"
             *ngFor="let book of bookList; let i = index"
-            (click)="onLoadBook(i)"> {{ book.name }}
-      <p class="statut"> {{getStatut(book)}}</p>
+            (click)="onLoadBook(i)"> {{ book.name }} - {{book.auteur}}
+      <p class="statut"> {{getStatut(book)}} </p>
     </button>
   </ion-list>
 </ion-content>

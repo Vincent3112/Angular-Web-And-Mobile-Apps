@@ -8,13 +8,36 @@ export class ArticlesService {
       name: 'I will survive',
       artiste: 'Gloria Gaynor',
       prix: 15,
-      isLent: false
+      isLent: false,
+      loueur: ''
     },
     {
-      name: 'Second CD',
-      artiste: 'second artiste',
+      name: 'Shadow of the day',
+      artiste: 'Linkin Park',
       prix: 15,
-      isLent: false
+      isLent: false,
+      loueur: ''
+    },
+    {
+      name: 'The man with the red face',
+      artiste: 'Laurent Garnier',
+      prix: 15,
+      isLent: true,
+      loueur: 'Bertrand'
+    },
+    {
+      name: 'In Between',
+      artiste: 'Linkin Park',
+      prix: 15,
+      isLent: false,
+      loueur: ''
+    },
+    {
+      name: 'Petit frère',
+      artiste: 'Iam',
+      prix: 15,
+      isLent: true,
+      loueur: 'Arnaud'
     }
   ]
 
@@ -23,13 +46,29 @@ export class ArticlesService {
       name: 'Réparer les vivants',
       auteur: 'Maylis de Kerangal',
       prix: 12,
-      isLent: true
+      isLent: true,
+      loueur: 'Arthur'
     },
     {
-      name: 'Second livre',
-      auteur: 'second auteur',
+      name: 'Serotonine',
+      auteur: 'Michel Houellebecq',
       prix: 15,
-      isLent: false
+      isLent: true,
+      loueur: 'Yves'
+    },
+    {
+      name: "La gouteuse d'Hitler",
+      auteur: 'Rosella Postorino',
+      prix: 15,
+      isLent: false,
+      loueur: ''
+    },
+    {
+      name: "L'erreur",
+      auteur: 'Susie Fox',
+      prix: 15,
+      isLent: true,
+      loueur: 'Gilbert'
     }
   ]
 }
