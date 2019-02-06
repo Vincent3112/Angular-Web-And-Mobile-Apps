@@ -13,7 +13,6 @@ export class SingleBookPage {
   index: number;
   book: Book;
 
-
   constructor(private articleService: ArticlesService,
               public navParams: NavParams,
               private viewController: ViewController,
