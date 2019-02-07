@@ -15,6 +15,7 @@ import {listenToElementOutputs} from "@angular/core/src/view/element";
 export class bookListPage {
 
   bookList: Book[];
+  index: number;
 
   constructor(private articleService: ArticlesService,
               private modalCtrl: ModalController,
@@ -22,12 +23,9 @@ export class bookListPage {
 
   }
 
-
   ionViewWillEnter() {
     this.bookList = this.articleService.bookList.slice();
   }
-
-
 
   onLoadBook(index: number) {
     let modal = this.modalCtrl.create(SingleBookPage, {index: index});

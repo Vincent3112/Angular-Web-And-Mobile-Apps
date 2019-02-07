@@ -27,6 +27,7 @@ export class SingleBookPage {
   }
 
   dismissModal() {
+    this.articleService.saveBooks();
     this.viewController.dismiss();
   }
 

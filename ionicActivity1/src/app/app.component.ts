@@ -6,6 +6,7 @@ import {TabsPage} from "../pages/tabs/tabs";
 import {SettingsPage} from "../pages/settings/settings";
 import * as firebase from 'firebase';
 import {AuthPage} from "../pages/auth/auth";
+import { ArticlesService } from '../services/articles.service';
 
 @Component({
   templateUrl: 'app.html'
@@ -22,7 +23,10 @@ export class MyApp {
   constructor(platform: Platform,
               statusBar: StatusBar,
               splashScreen: SplashScreen,
-              private menuCtrl: MenuController) {
+              private menuCtrl: MenuController,
+              private articleService: ArticlesService ) {
+
+    
 
     platform.ready().then(() => {
 
@@ -35,7 +39,8 @@ export class MyApp {
         messagingSenderId: "74118187154"
       };
       firebase.initializeApp(config);
-
+      this.articleService.fetchBooks();
+      this.articleService.fetchCds();
       firebase.auth().onAuthStateChanged(
         (user) => {
           if (user) {
@@ -52,6 +57,8 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
+
+    
   }
 
   onNavigate(page: any, data?: {}) {

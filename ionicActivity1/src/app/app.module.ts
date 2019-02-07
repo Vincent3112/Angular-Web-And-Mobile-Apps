@@ -15,6 +15,7 @@ import {SingleCdPage} from "../pages/cdList/single-cd/single-cd";
 import {SettingsPage} from "../pages/settings/settings";
 import {AuthPage} from "../pages/auth/auth";
 import {AuthService} from "../services/auth.service";
+import {IonicStorageModule} from '@ionic/storage';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {AuthService} from "../services/auth.service";
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -49,7 +51,7 @@ import {AuthService} from "../services/auth.service";
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ArticlesService,
-    AuthService
+    AuthService,
   ]
 })
 export class AppModule {}

@@ -27,6 +27,7 @@ export class SingleCdPage {
   }
 
   dismissModal() {
+    this.articleService.saveCds();
     this.viewCtrl.dismiss();
   }
 

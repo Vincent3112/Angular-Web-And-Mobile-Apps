@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-buttons start>
+    <ion-buttons>
       <button ion-button icon-only (click)="onToggleMenu()">
         <ion-icon name="menu"></ion-icon>
       </button>
@@ -9,6 +9,31 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <p>Ceci est la page de régglages. Enjoy !</p>
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-buttons>
+          <button ion-button (click)="onSaveBooks()">Save Books</button>
+        </ion-buttons>
+      </ion-col>
+      <ion-col>
+        <ion-buttons>
+          <button ion-button (click)="onFetchBooks()">Fetch Books</button>
+        </ion-buttons>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-buttons>
+          <button ion-button (click)="onSaveCds()">Save CDs</button>
+        </ion-buttons>
+      </ion-col>
+      <ion-col>
+        <ion-buttons>
+          <button ion-button (click)="onFetchCds()">Fetch CDs</button>
+        </ion-buttons>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
