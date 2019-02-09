@@ -43,7 +43,7 @@
     </div>
     <br>
     <br>
-    <h4 *ngIf="filteredPosts.length ===0"> Sorry ! Your request does not match any post title ! </h4>
+    <h4 *ngIf="filteredPosts.length ===0"> Sorry ! Your request does not match any post ! </h4>
     <table class="table">
         <tr *ngFor="let post of filteredPosts; let i = index "
                 [ngClass]="{'list-group-item': true,
