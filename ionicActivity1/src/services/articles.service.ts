@@ -178,4 +178,10 @@ export class ArticlesService {
   emitCds(){
     this.cdList$.next(this.cdList);
   }
+
+  addBook(book: Book){
+    this.bookList.push(book);
+    this.saveBooks();
+    this.fetchBooks();
+  }
 }

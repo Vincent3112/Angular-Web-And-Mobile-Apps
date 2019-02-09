@@ -16,6 +16,7 @@ import {SettingsPage} from "../pages/settings/settings";
 import {AuthPage} from "../pages/auth/auth";
 import {AuthService} from "../services/auth.service";
 import {IonicStorageModule} from '@ionic/storage';
+import { BookFormPage } from '../pages/book-form/book-form';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {IonicStorageModule} from '@ionic/storage';
     SingleBookPage,
     SingleCdPage,
     SettingsPage,
-    AuthPage
+    AuthPage,
+    BookFormPage
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ import {IonicStorageModule} from '@ionic/storage';
     SingleBookPage,
     SingleCdPage,
     SettingsPage,
-    AuthPage
+    AuthPage,
+    BookFormPage
   ],
   providers: [
     StatusBar,

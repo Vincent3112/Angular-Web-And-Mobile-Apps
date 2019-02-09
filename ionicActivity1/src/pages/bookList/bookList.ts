@@ -6,6 +6,7 @@ import {SingleBookPage} from "./single-book/single-book";
 import {TabsPage} from "../tabs/tabs";
 import {CD} from "../../models/CD";
 import {listenToElementOutputs} from "@angular/core/src/view/element";
+import { BookFormPage } from "../book-form/book-form";
 
 @Component({
   selector: 'page-bookList',
@@ -42,5 +43,10 @@ export class bookListPage {
     } else {
       return 'en stock';
     }
+  }
+
+  onNewBook(){
+    let modal = this.modalCtrl.create(BookFormPage);
+    modal.present();
   }
 }

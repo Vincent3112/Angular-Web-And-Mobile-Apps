@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons>
+      <button ion-button (click)="onBack()">Back</button>
+    </ion-buttons>
+    <ion-title>Nouveau livre</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="bookForm">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Nom du livre</ion-label>
+        <ion-input type="text" formControlName="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Auteur</ion-label>
+        <ion-input type="text" formControlName="auteur"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Prix</ion-label>
+        <ion-input type="text" formControlName="prix"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-buttons>
+      <button ion-button full (click)="onSubmitForm()">Valider</button>
+    </ion-buttons>
+  </form>
+</ion-content>
