@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-navbar>
+      <ion-buttons>
+        <button ion-button (click)="onBack()">Back</button>
+      </ion-buttons>
+      <ion-title>Nouveau CD</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <form [formGroup]="cdForm">
+      <ion-list>
+        <ion-item>
+          <ion-label floating>Titre du CD</ion-label>
+          <ion-input type="text" formControlName="name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Artiste</ion-label>
+          <ion-input type="text" formControlName="artiste"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Prix</ion-label>
+          <ion-input type="text" formControlName="prix"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-buttons>
+        <button ion-button full (click)="onSubmitForm()">Valider</button>
+      </ion-buttons>
+    </form>
+  </ion-content>
+  

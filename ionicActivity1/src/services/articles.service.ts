@@ -182,6 +182,10 @@ export class ArticlesService {
   addBook(book: Book){
     this.bookList.push(book);
     this.saveBooks();
-    this.fetchBooks();
+  }
+
+  addCd(cd: CD){
+    this.cdList.push(cd);
+    this.saveCds();
   }
 }

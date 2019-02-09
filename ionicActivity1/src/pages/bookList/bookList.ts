@@ -3,9 +3,6 @@ import {ArticlesService} from "../../services/articles.service";
 import {Book} from "../../models/Book";
 import {MenuController, ModalController} from "ionic-angular";
 import {SingleBookPage} from "./single-book/single-book";
-import {TabsPage} from "../tabs/tabs";
-import {CD} from "../../models/CD";
-import {listenToElementOutputs} from "@angular/core/src/view/element";
 import { BookFormPage } from "../book-form/book-form";
 
 @Component({

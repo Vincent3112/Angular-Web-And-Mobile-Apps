@@ -3,6 +3,7 @@ import {CD} from "../../models/CD";
 import {ArticlesService} from "../../services/articles.service";
 import {MenuController, ModalController} from "ionic-angular";
 import {SingleCdPage} from "./single-cd/single-cd";
+import {CdFormPage} from '../cd-form/cd-form';
 
 @Component({
   selector: 'page-cdList',
@@ -39,5 +40,10 @@ export class cdListPage {
 
   onToggleMenu() {
     this.menuCtrl.open();
+  }
+
+  onNewCd(){
+    let modal = this.modalCtrl.create(CdFormPage);
+    modal.present();
   }
 }

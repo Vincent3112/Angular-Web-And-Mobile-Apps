@@ -1,22 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import {MenuController, NavController} from 'ionic-angular';
-import { ArticlesService } from '../../services/articles.service';
+import { Component } from '@angular/core';
+import {MenuController, NavController, App} from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage {
+export class HomePage{
 
   constructor(public navCtrl: NavController,
               private menuCtrl: MenuController,
-              private articleService: ArticlesService) {
+              public appCtrl: App) {
 
   }
-
-
 
   onToggleMenu() {
     this.menuCtrl.open();
   }
+
 }
