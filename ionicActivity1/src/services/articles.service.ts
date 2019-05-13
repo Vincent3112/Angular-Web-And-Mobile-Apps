@@ -84,6 +84,27 @@ export class ArticlesService {
   cdList$ = new Subject<CD[]>();
   bookList$ = new Subject<Book[]>();
 
+
+  booksAvailable(){
+    let books = 0;
+    for(let book of this.bookList){
+      if (!book.isLent){
+        books++;
+      }
+    }
+    return books;
+  }
+
+  cdsAvailable(){
+    let cds = 0;
+    for(let cd of this.cdList){
+      if (!cd.isLent){
+        cds++;
+      }
+    }
+    return cds;
+  }
+
   saveCds() {
     return new Promise((resolve, reject) => {
       firebase.database().ref('CD').set(this.cdList).then(
@@ -140,37 +161,6 @@ export class ArticlesService {
     });
   }
 
-  saveBooksInStorage(){
-    this.storage.set('Books', this.bookList);
-  }
-
-  saveCdsInStorage(){
-    this.storage.set('CD', this.cdList);
-  }
-
-
-  fetchBooksFromStorage(){
-    this.storage.get('Books').then(
-      (books) => {
-        if (books && books.length) {
-          this.bookList = books.slice();
-        }
-        this.emitBooks();
-      }
-    )
-  }
-
-  fetchCdsFromStorage(){
-    this.storage.get('CD').then(
-      (Cds) => {
-        if (Cds && Cds.length) {
-          this.cdList = Cds.slice();
-        }
-        this.emitCds();
-      }
-    )
-  }
-
   emitBooks(){
     this.bookList$.next(this.bookList);
   }
@@ -187,5 +177,17 @@ export class ArticlesService {
   addCd(cd: CD){
     this.cdList.push(cd);
     this.saveCds();
+  }
+
+  deleteCd(index: number){
+    this.cdList.splice(index, 1);
+    this.saveCds();
+    this.fetchCds();
+    console.log("12");
+  }
+
+  deleteBook(index: number){
+    this.bookList.splice(index, 1);
+    this.bookList = this.bookList.slice();
   }
 }

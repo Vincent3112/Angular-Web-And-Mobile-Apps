@@ -14,6 +14,7 @@ export class cdListPage {
 
   cdList: CD[];
   index: number;
+  deleteMode: boolean = false;
 
   constructor(private articleService: ArticlesService,
               private modalCtrl: ModalController,
@@ -22,7 +23,7 @@ export class cdListPage {
   }
 
   ionViewWillEnter() {
-    this.cdList = this.articleService.cdList.slice();
+    this.cdList = this.articleService.cdList;
   }
 
   onLoadCd(i: number) {

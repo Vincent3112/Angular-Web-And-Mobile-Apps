@@ -13,7 +13,42 @@
 
 <ion-content padding>
   <ion-card>  
-    <ion-card-header> Bienvenu dans ma librairie multimedia ! </ion-card-header>
+    <ion-card-header> Ceci est ma librairie multimedia !</ion-card-header>
   </ion-card>
-  <p> Ici vous pourrez accéder à tous mes livres et Cds et les louer si ils sont disponibles.</p>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-label *ngIf="this.articleService.booksAvailable() >= 2">
+                   {{ this.articleService.booksAvailable() }} livres sont disponibles ici !
+        </ion-label>
+        <ion-label *ngIf="this.articleService.booksAvailable() == 1">
+                    Le dernier livre est disponible ici !
+          </ion-label>
+      </ion-item>
+      <button ion-button
+              color="primary"
+              round
+              (click)="onAccessBooks()"> Accéder aux Livres <ion-icon class="icon" name="arrow-round-forward"></ion-icon></button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+    <ion-item>
+        <ion-label *ngIf="this.articleService.cdsAvailable() >= 2">
+            {{ this.articleService.cdsAvailable() }} cds sont disponibles ici !
+        </ion-label>
+        <ion-label *ngIf="this.articleService.cdsAvailable() == 1">
+            Le dernier cd est disponible ici !
+        </ion-label>
+      </ion-item>
+      <button ion-button
+              color="success"
+              round
+              (click)="onAccessCds()"> Accéder aux Cds <ion-icon class="icon" name="arrow-round-forward"></ion-icon>
+      </button>
+    </ion-card-content>
+  </ion-card>
+  
 </ion-content>

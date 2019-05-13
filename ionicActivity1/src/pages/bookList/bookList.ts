@@ -22,7 +22,7 @@ export class bookListPage {
   }
 
   ionViewWillEnter() {
-    this.bookList = this.articleService.bookList.slice();
+    this.bookList = this.articleService.bookList;
   }
 
   onLoadBook(index: number) {

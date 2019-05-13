@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
 
-    <ion-buttons start>
+    <ion-buttons end>
       <button ion-button icon-only (click)="onToggleMenu()">
         <ion-icon name="menu"></ion-icon>
       </button>
@@ -12,19 +12,18 @@
 
 <ion-content>
   <ion-list>
-    <button ion-item
-            *ngFor="let cd of cdList; let i= index"
-            (click)="onLoadCd(i)"
-            [color]="!cd.isLent ? 'secondary-light' : 'danger-light'"> {{ cd.name }} - {{cd.artiste}}
+    <ion-item button
+              *ngFor="let cd of cdList; let i= index"
+              (click)="onLoadCd(i)"
+              [color]="!cd.isLent ? 'secondary-light' : 'danger-light'">  {{ cd.name }} - {{cd.artiste}}
       <p class="statut"> {{getStatut(cd)}} </p>
-    </button>
-
+    </ion-item>
   </ion-list>
 </ion-content>
 
 
 <ion-footer>
     <ion-buttons>
-      <button ion-button full (click)="onNewCd()">Ajouter un cd</button>
+      <button ion-button round full [disabled]="deleteMode" (click)="onNewCd()">Ajouter un cd</button>
     </ion-buttons>
   </ion-footer>

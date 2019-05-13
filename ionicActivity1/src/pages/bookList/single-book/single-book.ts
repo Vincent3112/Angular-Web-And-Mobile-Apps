@@ -1,7 +1,7 @@
 import {Component} from "@angular/core";
 import {Book} from "../../../models/Book";
 import {ArticlesService} from "../../../services/articles.service";
-import {AlertController, NavParams, ToastController, ViewController} from "ionic-angular";
+import {AlertController, NavParams, ToastController, ViewController, LoadingController} from "ionic-angular";
 
 @Component({
   selector: 'page-single-book',
@@ -17,7 +17,8 @@ export class SingleBookPage {
               public navParams: NavParams,
               private viewController: ViewController,
               private alertCtrl: AlertController,
-              private toastCtrl: ToastController) {
+              private toastCtrl: ToastController,
+              private loadingCtrl: LoadingController) {
 
   }
 
@@ -75,5 +76,11 @@ export class SingleBookPage {
       position: 'middle'
     });
     toast.present();
+  }
+
+  onDeleteBook(){
+    this.articleService.bookList.splice(this.index, 1);
+    this.articleService.saveBooks();
+    this.viewController.dismiss();   
   }
 }

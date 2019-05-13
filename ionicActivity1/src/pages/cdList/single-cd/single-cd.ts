@@ -75,4 +75,11 @@ export class SingleCdPage {
     });
     toast.present();
   }
+
+
+  onDeleteCd(){
+    this.articleService.cdList.splice(this.index, 1);
+    this.articleService.saveCds();
+    this.viewCtrl.dismiss();   
+  }
 }
