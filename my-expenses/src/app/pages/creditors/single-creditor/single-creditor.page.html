@@ -1,33 +1,29 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Détails</ion-title>
+    <ion-title>Détails créditeur</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <!-- <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-icon name="build"></ion-icon>
-      </ion-col>
-    </ion-row>
-  </ion-grid> -->
-  <ion-item>
-    <ion-input [(ngModel)]="creditor.name"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label> $ </ion-label>
-    <ion-input [(ngModel)]="creditor.amount"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label> Pour : </ion-label>
-    <ion-input [(ngModel)]="creditor.description"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label> Depuis le : {{creditor.date | date}} </ion-label>
-  </ion-item>
+  <form [formGroup]="form">
+    <ion-item>
+      <ion-input type="text" formControlName="name" [(ngModel)]="creditor.name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label> $ </ion-label>
+      <ion-input type="number" formControlName="amount" [(ngModel)]="creditor.amount"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label> Pour : </ion-label>
+      <ion-input formControlName="description" [(ngModel)]="creditor.description"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label> Depuis le : {{creditor.date | date}} </ion-label>
+    </ion-item>
+  </form>
 </ion-content>
 
+
 <ion-footer>
-  <ion-button expand="full" button (click)="closeModal()">Fermer</ion-button>
+  <ion-button expand="full" [disabled]="form.invalid" button (click)="closeModal()">Fermer</ion-button>
 </ion-footer>
