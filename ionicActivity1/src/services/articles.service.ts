@@ -9,7 +9,7 @@ import {Subject} from "rxjs";
 @Injectable()
 export class ArticlesService {
 
-  constructor (private storage: Storage)  {
+  constructor ()  {
   }
 
   cdList: CD[] = [
