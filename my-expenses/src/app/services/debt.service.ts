@@ -9,8 +9,7 @@ import { FormGroup } from '@angular/forms';
 
 export class DebtService {
 
-
-    debts: Debt[] = [
+    unPaidDebts: Debt[] = [
         {
             name: 'Alfred',
             amount: 15,
@@ -24,32 +23,18 @@ export class DebtService {
             description: 'DGTL',
             date: new Date(),
             paid: false
-        },
+        }
+    ];
+    paidDebts: Debt[] = [
         {
             name: 'Jean',
             amount: 150,
             description: 'Holidays',
             date: new Date(),
             paid: true
-        },
+        }
     ];
 
-    unPaidDebts: Debt[] = [];
-    paidDebts: Debt[] = [];
-
-
-    public updateDebts() {
-        for (let i = 0; i < this.debts.length; i++) {
-            if (!this.debts[i].paid) {
-                this.unPaidDebts.push(this.debts[i]);
-            }
-        }
-        for (let i = 0; i < this.debts.length; i++) {
-            if (this.debts[i].paid) {
-                this.paidDebts.push(this.debts[i]);
-            }
-        }
-    }
 
     public getUnPaidDebts() {
         return this.unPaidDebts;
@@ -59,5 +44,10 @@ export class DebtService {
         form.value.paid = false;
         form.value.date = new Date();
         this.unPaidDebts.push(form.value);
+    }
+
+    public debtIsPaid(id: number, debt: Debt){
+        this.unPaidDebts.splice(id, 1);
+        this.paidDebts.push(debt);
     }
 }

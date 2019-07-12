@@ -16,7 +16,6 @@ export class CreditorsPage implements OnInit {
   myCreditors: Creditor[];
 
   ngOnInit() {
-    this.creditorService.updateCredits();
     this.myCreditors = this.creditorService.getUnPaidCredits();
   }
 
@@ -34,10 +33,9 @@ export class CreditorsPage implements OnInit {
     this.navCtrl.navigateForward(`/new-creditor`);
   }
 
-  public onChangeStatus(){
-    // creditor.paid = true;
-    // this.creditorService.updateCredits();
-    console.log("12");
+  public onChangeStatus(id: number, creditor: Creditor){
+    creditor.paid = true;
+    this.creditorService.creditIsPaid(id, creditor);
   }
 
 }

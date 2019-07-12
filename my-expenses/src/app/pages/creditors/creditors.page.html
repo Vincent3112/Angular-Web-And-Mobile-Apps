@@ -11,10 +11,9 @@
         <h2>{{ creditor.name }}</h2>
         <h3>Il te doit {{ creditor.amount }} balles</h3>
       </ion-label>
-      <!-- <ion-button (click)="onDeleteCreditor()"><ion-icon name="close-circle"></ion-icon></ion-button> -->
     </ion-item>
     <ion-item-options side="end">
-      <ion-item-option (click)="onChangeStatus()" color="success">
+      <ion-item-option (click)="onChangeStatus(i, creditor)" color="success">
         Payé<ion-icon name="checkmark" slot="end"></ion-icon>
       </ion-item-option>
     </ion-item-options>

@@ -16,7 +16,6 @@ export class DebtsPage implements OnInit {
   myDebts: Debt[];
 
   ngOnInit() {
-    this.debtService.updateDebts();
     this.myDebts = this.debtService.getUnPaidDebts();
   }
 
@@ -34,8 +33,9 @@ export class DebtsPage implements OnInit {
     this.navCtrl.navigateForward(`/new-debt`);
   }
 
-  public onChangeStatus(debt: Debt){
-    
+  public onChangeStatus(id: number, debt: Debt){
+    debt.paid = true;
+    this.debtService.debtIsPaid(id, debt);
   }
 
 }

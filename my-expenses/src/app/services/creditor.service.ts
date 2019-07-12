@@ -8,9 +8,7 @@ import { FormGroup } from '@angular/forms';
 
 export class CreditorService {
 
-    unPaidCredits: Creditor[] = [];
-    paidCredits: Creditor[] = [];
-    creditors: Creditor[] = [
+    unPaidCredits: Creditor[] = [
         {
             name: 'Vincent',
             amount: 20,
@@ -24,24 +22,17 @@ export class CreditorService {
             description: 'Ciné',
             date: new Date(),
             paid: false
-        },
+        }
+    ];
+    paidCredits: Creditor[] = [
         {
             name: 'Jean',
             amount: 200,
             description: 'Vacances',
             date: new Date(),
             paid: true
-        },
+        }
     ];
-
-    public resetTables() {
-        this.unPaidCredits = [];
-        this.paidCredits = [];
-    }
-
-    public getCreditors() {
-        return this.creditors;
-    }
 
     public addCreditor(form: FormGroup) {
         form.value.paid = false;
@@ -50,19 +41,12 @@ export class CreditorService {
     }
 
 
-    public updateCredits() {
-        this.resetTables();
-        for (let i = 0; i < this.creditors.length; i++) {
-            if (!this.creditors[i].paid) {
-                this.unPaidCredits.push(this.creditors[i]);
-            }
-            else {
-                this.paidCredits.push(this.creditors[i]);
-            }
-        }
-    }
-
     public getUnPaidCredits() {
         return this.unPaidCredits;
+    }
+
+    public creditIsPaid(id: number, creditor: Creditor) {
+        this.unPaidCredits.splice(id, 1);
+        this.paidCredits.push(creditor);
     }
 }
