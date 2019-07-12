@@ -13,13 +13,15 @@
     </ion-row>
   </ion-grid> -->
   <ion-item>
-    <ion-label> Nom : {{creditor.name}}</ion-label> 
+    <ion-input [(ngModel)]="creditor.name"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label> Te doit : {{creditor.amount}} euros</ion-label>
+    <ion-label> $ </ion-label>
+    <ion-input [(ngModel)]="creditor.amount"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label> Pour : {{creditor.description}} </ion-label>
+    <ion-label> Pour : </ion-label>
+    <ion-input [(ngModel)]="creditor.description"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label> Depuis le : {{creditor.date | date}} </ion-label>
