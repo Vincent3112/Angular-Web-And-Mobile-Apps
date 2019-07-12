@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Nouvelle dette</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="form">
+    <ion-item>
+      <ion-label>Nom : </ion-label>
+      <ion-input formControlName="name" type="text" placeholder="Yves Remord"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Montant : </ion-label>
+      <ion-input formControlName="amount" type="number" placeholder="$"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Pour : </ion-label>
+      <ion-input formControlName="description" type="text" placeholder="Pizza, ciné, ..."></ion-input>
+    </ion-item>
+    <ion-button (click)="onValidateForm(form)" [disabled]="form.invalid" type="submit" color="primary" expand="full">Confirmer</ion-button>
+  </form>
+
+</ion-content>
+
+<ion-footer>
+    <ion-button (click)="onCancel()" color="medium" expand="full" shape="round" fill="outline">Annuler</ion-button>
+</ion-footer>

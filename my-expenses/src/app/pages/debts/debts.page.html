@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Dettes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item-sliding *ngFor="let debt of myDebts; let i = index">
+    <ion-item lines="inset" (click)="onLoadDebt(debt)">
+      <ion-label>
+        <h2>{{ debt.name }}</h2>
+        <h3>Tu lui dois {{ debt.amount }} balles</h3>
+      </ion-label>
+      <!-- <ion-button (click)="onDeleteCreditor()"><ion-icon name="close-circle"></ion-icon></ion-button> -->
+    </ion-item>
+
+    <ion-item-options side="end">
+      <ion-item-option (click)="onChangeStatus(debt)" color="success">
+        Payé<ion-icon name="checkmark" slot="end"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-content>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="onAddDebt()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+<!-- 
+<ion-footer>
+  <ion-button expand="full" shape="round" fill="outline" (click)="onAddDebt()">Je dois des tunes à un pote</ion-button>
+</ion-footer> -->

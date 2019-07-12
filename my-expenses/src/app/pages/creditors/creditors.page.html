@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Créditeurs</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item-sliding *ngFor="let creditor of myCreditors; let i = index">
+    <ion-item (click)="onLoadCreditor(creditor)">
+      <ion-label>
+        <h2>{{ creditor.name }}</h2>
+        <h3>Il te doit {{ creditor.amount }} balles</h3>
+      </ion-label>
+      <!-- <ion-button (click)="onDeleteCreditor()"><ion-icon name="close-circle"></ion-icon></ion-button> -->
+    </ion-item>
+    <ion-item-options side="end">
+      <ion-item-option (click)="onChangeStatus()" color="success">
+        Payé<ion-icon name="checkmark" slot="end"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-content>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="onAddCreditor()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+<!-- <ion-footer>
+  <ion-button expand="full" shape="round" fill="outline" (click)="onAddCreditor()">Quelqu'un me doit des tunes
+  </ion-button>
+</ion-footer> -->
