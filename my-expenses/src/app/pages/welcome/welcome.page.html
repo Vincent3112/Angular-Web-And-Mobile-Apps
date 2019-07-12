@@ -5,5 +5,25 @@
 </ion-header>
 
 <ion-content>
-  
+    <ion-card>
+        <ion-card-header>
+          <ion-card-title>Etat de tes créditeurs</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-item>
+            <ion-button color="tertiary">{{creditorsNbr}} personnes te doivent des tunes</ion-button>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+          <ion-card-header>
+            <ion-card-title>Etat de tes dettes</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item>
+                <ion-button color="secondary">Tu dois des tunes à {{debtsNumber}} personnes</ion-button>
+              </ion-item>
+          </ion-card-content>
+        </ion-card>
 </ion-content>
