@@ -17,9 +17,12 @@ export class WelcomePage implements OnInit {
   constructor(private creditorService: CreditorService, private debtService: DebtService, private navCtrl: NavController) { }
 
   ngOnInit() {
+    this.update();
+  }
+
+  public update(){
     this.creditorsNbr = this.creditorService.unPaidCredits.length;
     this.debtsNumber = this.debtService.unPaidDebts.length;
-
   }
 
 }
