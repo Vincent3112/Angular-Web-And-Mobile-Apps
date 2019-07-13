@@ -40,6 +40,10 @@ export class DebtService {
         return this.unPaidDebts;
     }
 
+    public getPaidDebts() {
+        return this.paidDebts;
+    }
+
     public addDebt(form: FormGroup) {
         form.value.paid = false;
         form.value.date = new Date();

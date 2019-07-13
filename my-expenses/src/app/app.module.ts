@@ -10,10 +10,12 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SingleCreditorPage } from './pages/creditors/single-creditor/single-creditor.page';
 import { SingleDebtPage } from './pages/debts/single-debt/single-debt.page';
+import { PaidCreditsPage } from './pages/creditors/paid-credits/paid-credits.page';
+import { PaidDebtsPage } from './pages/debts/paid-debts/paid-debts.page';
 
 @NgModule({
-  declarations: [AppComponent, SingleCreditorPage, SingleDebtPage],
-  entryComponents: [SingleCreditorPage, SingleDebtPage],
+  declarations: [AppComponent, SingleCreditorPage, SingleDebtPage, PaidCreditsPage, PaidDebtsPage],
+  entryComponents: [SingleCreditorPage, SingleDebtPage, PaidCreditsPage, PaidDebtsPage],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [
     StatusBar,

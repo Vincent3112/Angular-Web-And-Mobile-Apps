@@ -45,6 +45,10 @@ export class CreditorService {
         return this.unPaidCredits;
     }
 
+    public getPaidCredits() {
+        return this.paidCredits;
+    }
+
     public creditIsPaid(id: number, creditor: Creditor) {
         this.unPaidCredits.splice(id, 1);
         this.paidCredits.push(creditor);

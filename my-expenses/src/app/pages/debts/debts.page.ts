@@ -3,6 +3,7 @@ import { DebtService } from 'src/app/services/debt.service';
 import { ModalController, NavController } from '@ionic/angular';
 import { Debt } from 'src/app/models/debt';
 import { SingleDebtPage } from './single-debt/single-debt.page';
+import { PaidDebtsPage } from './paid-debts/paid-debts.page';
 
 @Component({
   selector: 'app-debts',
@@ -36,6 +37,13 @@ export class DebtsPage implements OnInit {
   public onChangeStatus(id: number, debt: Debt){
     debt.paid = true;
     this.debtService.debtIsPaid(id, debt);
+  }
+
+  public async onDisplayHistory(){
+    const modal = await this.modalCtrl.create({
+      component: PaidDebtsPage
+    });
+    modal.present();
   }
 
 }

@@ -11,7 +11,6 @@
         <h2>{{ debt.name }}</h2>
         <h3>Tu lui dois {{ debt.amount }} balles</h3>
       </ion-label>
-      <!-- <ion-button (click)="onDeleteCreditor()"><ion-icon name="close-circle"></ion-icon></ion-button> -->
     </ion-item>
 
     <ion-item-options side="end">
@@ -23,11 +22,13 @@
 </ion-content>
 
 <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-  <ion-fab-button (click)="onAddDebt()">
-    <ion-icon name="add"></ion-icon>
+  <ion-fab-button>
+    <ion-icon name="options"></ion-icon>
   </ion-fab-button>
+  <ion-fab-list side="top" >
+    <ion-fab-button color="primary" (click)="onAddDebt()"><ion-icon name="add"></ion-icon></ion-fab-button>
+  </ion-fab-list>
+  <ion-fab-list side="start">
+    <ion-fab-button color="primary" (click)="onDisplayHistory()"><ion-icon name="time"></ion-icon></ion-fab-button>
+  </ion-fab-list>
 </ion-fab>
-<!-- 
-<ion-footer>
-  <ion-button expand="full" shape="round" fill="outline" (click)="onAddDebt()">Je dois des tunes à un pote</ion-button>
-</ion-footer> -->

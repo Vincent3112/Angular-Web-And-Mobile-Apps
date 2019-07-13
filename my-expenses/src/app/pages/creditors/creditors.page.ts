@@ -3,6 +3,7 @@ import { CreditorService } from 'src/app/services/creditor.service';
 import { Creditor } from 'src/app/models/creditor';
 import { NavController, ModalController } from '@ionic/angular';
 import { SingleCreditorPage } from './single-creditor/single-creditor.page';
+import { PaidCreditsPage } from './paid-credits/paid-credits.page';
 
 @Component({
   selector: 'app-creditors',
@@ -36,6 +37,13 @@ export class CreditorsPage implements OnInit {
   public onChangeStatus(id: number, creditor: Creditor){
     creditor.paid = true;
     this.creditorService.creditIsPaid(id, creditor);
+  }
+
+  public async onDisplayHistory(){
+    const modal = await this.modalCtrl.create({
+      component: PaidCreditsPage
+    });
+    modal.present();
   }
 
 }
