@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Xpense</ion-title>
+    <ion-title >Xpense</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -8,15 +8,15 @@
 <ion-content padding>
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Vous avez déjà un compte</ion-card-title>
+      <ion-card-title>Vous avez déjà un compte ?</ion-card-title>
       <ion-card-subtitle>Connectez vous !</ion-card-subtitle>
     </ion-card-header>
-    <form [formGroup]="form">
+    <form [formGroup]="form" padding>
       <ion-item>
-        <ion-input type="email" formControlName="email" placeholder="your@email.com"></ion-input>
+        <ion-input type="email" formControlName="email" placeholder="mon@email.com"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input formControlName="password" type="password" placeholder="Password"></ion-input>
+        <ion-input formControlName="password" type="password" placeholder="Mot de passe"></ion-input>
       </ion-item>
       <ion-button [disabled]="form.invalid" expand="block" shape="round" routerLink="/menu/tabs">Connexion</ion-button>
     </form>
@@ -26,7 +26,7 @@
     <ion-card-header>
       <ion-card-subtitle>Vous n'avez pas de compte</ion-card-subtitle>
     </ion-card-header>
-    <ion-button expand="block" color="tertiary" shape="round" routerLink="/menu/tabs">S'inscrire <ion-icon slor="start" name="arrow-forward"></ion-icon> </ion-button>
+    <ion-button expand="block" color="tertiary" shape="round" routerLink="/register">S'inscrire <ion-icon slor="start" name="arrow-forward"></ion-icon> </ion-button>
   </ion-card>
 
 </ion-content>
