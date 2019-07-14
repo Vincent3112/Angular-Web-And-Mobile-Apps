@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>Créditeurs</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -25,10 +28,14 @@
   <ion-fab-button>
     <ion-icon name="options"></ion-icon>
   </ion-fab-button>
-  <ion-fab-list side="top" >
-    <ion-fab-button color="primary" (click)="onAddCreditor()"><ion-icon name="add"></ion-icon></ion-fab-button>
+  <ion-fab-list side="top">
+    <ion-fab-button color="primary" (click)="onAddCreditor()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
   </ion-fab-list>
   <ion-fab-list side="start">
-    <ion-fab-button color="primary" (click)="onDisplayHistory()"><ion-icon name="time"></ion-icon></ion-fab-button>
+    <ion-fab-button color="primary" (click)="onDisplayHistory()">
+      <ion-icon name="time"></ion-icon>
+    </ion-fab-button>
   </ion-fab-list>
 </ion-fab>

@@ -34,12 +34,12 @@ export class NewDebtPage implements OnInit {
 
 
   public onCancel(){
-    this.navCtrl.navigateBack(`/tabs/debts`)
+    this.navCtrl.navigateBack(`menu/tabs/tabs/debts`)
   }
 
   public onValidateForm(form: FormGroup){
     this.debtService.addDebt(form);
-    this.navCtrl.navigateBack(`/tabs/debts`);
+    this.navCtrl.navigateBack(`menu/tabs/tabs/debts`);
   }
 
 }

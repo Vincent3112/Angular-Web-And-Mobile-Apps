@@ -27,9 +27,9 @@ const routes: Routes = [
     ]
   },
   {
-    path: '',
-    redirectTo: '/tabs/welcome',
-    pathMatch: 'full'
+    path:'',
+    redirectTo:'tabs/welcome',
+    pathMatch:'full'
   }
 ];
 

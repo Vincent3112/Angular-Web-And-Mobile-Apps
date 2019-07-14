@@ -34,12 +34,12 @@ export class NewCreditorPage implements OnInit {
 
 
   public onCancel(){
-    this.navCtrl.navigateBack(`/tabs/creditors`)
+    this.navCtrl.navigateBack(`menu/tabs/tabs/creditors`)
   }
 
   public onValidateForm(form: FormGroup){
     this.creditorService.addCreditor(form);
-    this.navCtrl.navigateBack(`/tabs/creditors`);
+    this.navCtrl.navigateBack(`menu/tabs/tabs/creditors`);
   }
 
 }
