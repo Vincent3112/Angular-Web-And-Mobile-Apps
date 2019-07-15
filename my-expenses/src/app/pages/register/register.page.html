@@ -8,26 +8,29 @@
           </div>
           <div padding>
             <ion-item>
-              <ion-input name="username" formControlName="username" type="text" placeholder="Nom d'utilisateur"></ion-input>
+              <ion-label position="floating">Nom d'utilisateur</ion-label>
+              <ion-input formControlName="username" type="text"></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input name="password" formControlName="password" type="password" placeholder="Mot de passe">
+              <ion-label position="floating">Mot de passe</ion-label>
+              <ion-input formControlName="password" type="password">
               </ion-input>
             </ion-item>
             <ion-item>
-              <ion-input name="confirm" formControlName="password" type="password"
-                placeholder="Confirmer le mot de passe"></ion-input>
+              <ion-label position="floating">Confirmer le mot de passe</ion-label>
+              <ion-input formControlName="cpassword" type="password">
+              </ion-input>
             </ion-item>
           </div>
           <div padding>
-            <ion-button [disabled]="form.invalid" routerLink="/menu/tabs" expand="block">Valider</ion-button>
+            <ion-button [disabled]="form.invalid" (click)="register()" expand="block">Valider</ion-button>
           </div>
         </ion-col>
       </ion-row>
     </ion-grid>
   </form>
 
-  
+
   <ion-button routerLink="/auth" expand="block">J'ai déjà un compte</ion-button>
 
 </ion-content>

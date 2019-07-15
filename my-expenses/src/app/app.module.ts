@@ -12,11 +12,27 @@ import { SingleCreditorPage } from './pages/creditors/single-creditor/single-cre
 import { SingleDebtPage } from './pages/debts/single-debt/single-debt.page';
 import { PaidCreditsPage } from './pages/creditors/paid-credits/paid-credits.page';
 import { PaidDebtsPage } from './pages/debts/paid-debts/paid-debts.page';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import {AngularFireAuthModule} from '@angular/fire/auth';
 
 @NgModule({
-  declarations: [AppComponent, SingleCreditorPage, SingleDebtPage, PaidCreditsPage, PaidDebtsPage],
-  entryComponents: [SingleCreditorPage, SingleDebtPage, PaidCreditsPage, PaidDebtsPage],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule, ReactiveFormsModule],
+  declarations: [AppComponent,
+    SingleCreditorPage,
+    SingleDebtPage,
+    PaidCreditsPage,
+    PaidDebtsPage],
+  entryComponents: [SingleCreditorPage,
+    SingleDebtPage,
+    PaidCreditsPage,
+    PaidDebtsPage],
+  imports: [BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule],
   providers: [
     StatusBar,
     SplashScreen,
@@ -24,4 +40,4 @@ import { PaidDebtsPage } from './pages/debts/paid-debts/paid-debts.page';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
