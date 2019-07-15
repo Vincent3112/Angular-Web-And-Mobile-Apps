@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title >Xpense</ion-title>
+    <ion-title>Xpense</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,7 +13,7 @@
     </ion-card-header>
     <form [formGroup]="form" padding>
       <ion-item>
-        <ion-input type="email" formControlName="email" placeholder="mon@email.com"></ion-input>
+        <ion-input name="username" formControlName="username" type="text" placeholder="Nom d'utilisateur"></ion-input>
       </ion-item>
       <ion-item>
         <ion-input formControlName="password" type="password" placeholder="Mot de passe"></ion-input>
@@ -26,7 +26,9 @@
     <ion-card-header>
       <ion-card-subtitle>Vous n'avez pas de compte</ion-card-subtitle>
     </ion-card-header>
-    <ion-button expand="block" color="tertiary" shape="round" routerLink="/register">S'inscrire <ion-icon slor="start" name="arrow-forward"></ion-icon> </ion-button>
+    <ion-button expand="block" color="tertiary" shape="round" routerLink="/register">S'inscrire <ion-icon slor="start"
+        name="arrow-forward"></ion-icon>
+    </ion-button>
   </ion-card>
 
 </ion-content>

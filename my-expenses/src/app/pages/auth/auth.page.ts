@@ -13,9 +13,9 @@ export class AuthPage implements OnInit {
 
   constructor(private navCtrl: NavController, private formBuilder: FormBuilder) {
     this.form = this.formBuilder.group({
-      email: new FormControl('', Validators.compose([
+      username: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.email
+        Validators.minLength(6)
       ])),
       password: new FormControl('', Validators.compose([
         Validators.required,

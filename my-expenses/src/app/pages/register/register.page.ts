@@ -13,12 +13,9 @@ export class RegisterPage implements OnInit {
 
   constructor(private navCtrl: NavController, private formBuilder: FormBuilder) {
     this.form = this.formBuilder.group({
-      name: new FormControl('', Validators.compose([
-        Validators.required
-      ])),
-      email: new FormControl('', Validators.compose([
+      username: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.email
+        Validators.minLength(6)
       ])),
       password: new FormControl('', Validators.compose([
         Validators.required,
