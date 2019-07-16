@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Creditor } from '../models/creditor';
 import { FormGroup } from '@angular/forms';
+import { LoginService } from './login.service';
 
 @Injectable({
     providedIn: 'root'
@@ -14,14 +15,16 @@ export class CreditorService {
             amount: 20,
             description: 'Pizza',
             date: new Date(),
-            paid: false
+            paid: false,
+            username: "admin"
         },
         {
             name: 'Patrick',
             amount: 12,
             description: 'Ciné',
             date: new Date(),
-            paid: false
+            paid: false,
+            username: "admin"
         }
     ];
     paidCredits: Creditor[] = [
@@ -30,13 +33,20 @@ export class CreditorService {
             amount: 200,
             description: 'Vacances',
             date: new Date(),
-            paid: true
+            paid: true,
+            username: "admin"
         }
     ];
+
+
+    constructor(private loginService: LoginService) {
+
+    }
 
     public addCreditor(form: FormGroup) {
         form.value.paid = false;
         form.value.date = new Date();
+        form.value.username = this.loginService.currentUser.username;
         this.unPaidCredits.push(form.value);
     }
 

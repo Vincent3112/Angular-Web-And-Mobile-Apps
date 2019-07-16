@@ -20,7 +20,7 @@
             </ion-label>
           </ion-item>
         </ion-menu-toggle>
-        <ion-item tappable routerLink="/auth" routerDirection="root">
+        <ion-item tappable routerLink="/auth" (click)="onLogout()" routerDirection="root">
           <ion-icon name="log-out" slot="start"></ion-icon>
           Se déconnecter
         </ion-item>

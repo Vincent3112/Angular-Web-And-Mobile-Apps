@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 import { NavController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { LoginService } from 'src/app/services/login.service';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-register',
@@ -15,11 +16,13 @@ export class RegisterPage implements OnInit {
   username: string = "";
   password: string = "";
   cpassword: string = "";
+  errorMessage: string = "";
 
   constructor(private navCtrl: NavController,
-              private formBuilder: FormBuilder,
-              private afAuth: AngularFireAuth,
-              private loginService: LoginService) {
+    private formBuilder: FormBuilder,
+    private afAuth: AngularFireAuth,
+    private loginService: LoginService) {
+
     this.form = this.formBuilder.group({
       username: new FormControl('', Validators.compose([
         Validators.required,
@@ -39,7 +42,30 @@ export class RegisterPage implements OnInit {
   ngOnInit() {
   }
 
-  async register() {
-    this.loginService.register(this.form);
+  public async register() {
+    this.errorMessage = "";
+    this.username = this.form.get('username').value;
+    this.password = this.form.get('password').value;
+    this.cpassword = this.form.get('cpassword').value;
+    try {
+      const res = await this.afAuth.auth.createUserWithEmailAndPassword(this.username + "@douze.com", this.password);
+      if (res && this.cpassword === this.password) {
+        console.log("User created !");
+        this.loginService.authenticated = true;
+        this.loginService.currentUser = new User(this.username, this.password, [], [], [], []);
+        this.navCtrl.navigateForward('/menu/tabs/tabs/welcome');
+      }
+      if (this.cpassword != this.password) {
+        this.errorMessage = "Les mots de passe ne correspondent pas"
+        console.log("Passwords don't match")
+      }
+    }
+    catch (err) {
+      console.dir(err)
+      if (err.code === "auth/email-already-in-use") {
+        this.errorMessage = "Nom d'utilisateur déjà utilisé"
+        this.form.reset();
+      }
+    }
   }
 }

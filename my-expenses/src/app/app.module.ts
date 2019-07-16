@@ -14,7 +14,8 @@ import { PaidCreditsPage } from './pages/creditors/paid-credits/paid-credits.pag
 import { PaidDebtsPage } from './pages/debts/paid-debts/paid-debts.page';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
-import {AngularFireAuthModule} from '@angular/fire/auth';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [AppComponent,
@@ -32,7 +33,8 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
     FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule],
+    AngularFireAuthModule,
+    AngularFirestoreModule],
   providers: [
     StatusBar,
     SplashScreen,

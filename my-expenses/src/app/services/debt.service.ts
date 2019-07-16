@@ -1,7 +1,11 @@
 
 import { Injectable } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection, DocumentReference } from '@angular/fire/firestore';
+import { map, take } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { Debt } from '../models/debt';
 import { FormGroup } from '@angular/forms';
+import { LoginService } from './login.service';
 
 @Injectable({
     providedIn: 'root'
@@ -9,49 +13,58 @@ import { FormGroup } from '@angular/forms';
 
 export class DebtService {
 
-    unPaidDebts: Debt[] = [
-        {
-            name: 'Alfred',
-            amount: 15,
-            description: 'Peacock',
-            date: new Date(),
-            paid: false
-        },
-        {
-            name: 'John',
-            amount: 12,
-            description: 'DGTL',
-            date: new Date(),
-            paid: false
-        }
-    ];
-    paidDebts: Debt[] = [
-        {
-            name: 'Jean',
-            amount: 150,
-            description: 'Holidays',
-            date: new Date(),
-            paid: true
-        }
-    ];
+    private paidDebts: Observable<Debt[]>;
+    private unPaidDebts: Observable<Debt[]>;
+    private unPaidDebtsCollection: AngularFirestoreCollection<Debt>;
+    private paidDebtsCollection: AngularFirestoreCollection<Debt>;
 
+    constructor(private loginService: LoginService, private afs: AngularFirestore) {
+        this.unPaidDebtsCollection = this.afs.collection<Debt>('unPaidDebts');
+        this.unPaidDebts = this.unPaidDebtsCollection.snapshotChanges().pipe(
+            map(actions => {
+                return actions.map(a => {
+                    const data = a.payload.doc.data();
+                    const id = a.payload.doc.id;
+                    return { id, ...data };
+                })
+            })
+        )
 
-    public getUnPaidDebts() {
+        this.paidDebtsCollection = this.afs.collection<Debt>('paidDebts');
+        this.paidDebts = this.paidDebtsCollection.snapshotChanges().pipe(
+            map(actions => {
+                return actions.map(a => {
+                    const data = a.payload.doc.data();
+                    const id = a.payload.doc.id;
+                    return { id, ...data };
+                })
+            })
+        )
+    }
+
+    public getUnPaidDebt(): Observable<Debt[]> {
         return this.unPaidDebts;
     }
 
-    public getPaidDebts() {
+    public getPaidDebt(): Observable<Debt[]> {
         return this.paidDebts;
     }
 
-    public addDebt(form: FormGroup) {
-        form.value.paid = false;
-        form.value.date = new Date();
-        this.unPaidDebts.push(form.value);
+    public addUnPaidDebt(debt: Debt) {
+        debt.paid = false;
+        debt.date = new Date();
+        debt.username = this.loginService.currentUser.username;
+        this.unPaidDebtsCollection.add(debt);
     }
 
-    public debtIsPaid(id: number, debt: Debt){
-        this.unPaidDebts.splice(id, 1);
-        this.paidDebts.push(debt);
+    public addPaidDebt(debt: Debt) {
+        debt.date = new Date();
+        this.paidDebtsCollection.add(debt);
     }
+
+    public removePaidDebt(username: string) {
+        this.unPaidDebtsCollection.doc(username).delete();
+    }
+
+
 }

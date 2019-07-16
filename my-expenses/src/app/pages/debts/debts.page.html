@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-item-sliding *ngFor="let debt of myDebts; let i = index">
+  <ion-item-sliding *ngFor="let debt of this.loginService.currentUser.unPaidDebts; let i = index">
     <ion-item lines="inset" (click)="onLoadDebt(debt)">
       <ion-label>
         <h2>{{ debt.name }}</h2>
@@ -17,7 +17,7 @@
     </ion-item>
 
     <ion-item-options side="end">
-      <ion-item-option (click)="onChangeStatus(i, debt)" color="success">
+      <ion-item-option (click)="onChangeStatus(debt)" color="success">
         Payé<ion-icon name="checkmark" slot="end"></ion-icon>
       </ion-item-option>
     </ion-item-options>

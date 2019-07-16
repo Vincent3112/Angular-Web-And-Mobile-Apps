@@ -19,7 +19,7 @@
       <ion-input formControlName="description" [(ngModel)]="debt.description"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label> Depuis le : {{debt.date | date}} </ion-label>
+      <ion-label> Depuis le : {{debt.date.toDate() | date}} </ion-label>
     </ion-item>
   </form>
 </ion-content>

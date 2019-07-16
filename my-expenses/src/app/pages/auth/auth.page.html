@@ -20,6 +20,7 @@
         <ion-label position="floating">Mot de passe</ion-label>
         <ion-input formControlName="password" type="password"></ion-input>
       </ion-item>
+      <ion-label color="danger">{{errorMessage}}</ion-label>
       <ion-button [disabled]="form.invalid" expand="block" shape="round" type="submit" (click)="login()">Connexion</ion-button>
     </form>
   </ion-card>

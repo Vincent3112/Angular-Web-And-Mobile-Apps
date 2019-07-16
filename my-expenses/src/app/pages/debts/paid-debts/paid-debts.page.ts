@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Debt } from 'src/app/models/debt';
 import { DebtService } from 'src/app/services/debt.service';
 import { ModalController } from '@ionic/angular';
+import { LoadingOptions } from '@ionic/core';
+import { LoginService } from 'src/app/services/login.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-paid-debts',
@@ -10,15 +13,13 @@ import { ModalController } from '@ionic/angular';
 })
 export class PaidDebtsPage implements OnInit {
 
-  constructor(private debtService: DebtService, private modalCtrl: ModalController) { }
+  constructor(private modalCtrl: ModalController, private loginService: LoginService) { }
 
-  paidDebts: Debt[] = [];
-  
+
   ngOnInit() {
-    this.paidDebts = this.debtService.getPaidDebts();
   }
 
-  closeModal(){
+  closeModal() {
     this.modalCtrl.dismiss();
   }
 

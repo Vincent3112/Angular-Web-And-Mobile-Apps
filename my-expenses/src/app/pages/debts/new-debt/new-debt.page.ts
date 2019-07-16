@@ -12,17 +12,17 @@ export class NewDebtPage implements OnInit {
 
   form: FormGroup;
 
-  constructor(private navCtrl: NavController, private formBuilder: FormBuilder, private debtService: DebtService) { 
+  constructor(private navCtrl: NavController, private formBuilder: FormBuilder, private debtService: DebtService) {
     this.form = this.formBuilder.group({
-      name : new FormControl('', Validators.compose([
+      name: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(3)
       ])),
-      amount : new FormControl('', Validators.compose([
+      amount: new FormControl('', Validators.compose([
         Validators.required,
         Validators.pattern('^[1-9][0-9]*$')
       ])),
-      description : new FormControl('', Validators.compose([
+      description: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(3)
       ]))
@@ -33,12 +33,12 @@ export class NewDebtPage implements OnInit {
   }
 
 
-  public onCancel(){
+  public onCancel() {
     this.navCtrl.navigateBack(`menu/tabs/tabs/debts`)
   }
 
-  public onValidateForm(form: FormGroup){
-    this.debtService.addDebt(form);
+  public onValidateForm(form: FormGroup) {
+    this.debtService.addUnPaidDebt(form.value);
     this.navCtrl.navigateBack(`menu/tabs/tabs/debts`);
   }
 

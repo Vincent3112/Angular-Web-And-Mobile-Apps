@@ -22,6 +22,7 @@
               </ion-input>
             </ion-item>
           </div>
+          <ion-label color="danger">{{errorMessage}}</ion-label>
           <div padding>
             <ion-button [disabled]="form.invalid" (click)="register()" expand="block">Valider</ion-button>
           </div>
