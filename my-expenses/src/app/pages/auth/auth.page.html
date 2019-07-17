@@ -17,10 +17,10 @@
         <mat-label>Mot de passe</mat-label>
         <input formControlName="password" type="password" matInput>
       </mat-form-field>
-      <ion-button expand="block" [disabled]="form.invalid" type="submit" (click)="login()">Connexion
+      <ion-button shape="round" expand="block" [disabled]="form.invalid" type="submit" (click)="login()">Connexion
       </ion-button>
       <ion-label color="danger">{{errorMessage}}</ion-label>
     </form>
-    <ion-button expand="block" color="primary" routerLink="/register">Je n'ai pas de compte</ion-button>
   </ion-card>
+  <ion-button shape="round" expand="block" color="primary" routerLink="/register">Je n'ai pas de compte</ion-button>
 </ion-content>

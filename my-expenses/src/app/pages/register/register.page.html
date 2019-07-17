@@ -21,9 +21,9 @@
         <mat-label>Confirmer le mot de passe</mat-label>
         <input formControlName="cpassword" type="password" matInput>
       </mat-form-field>
-      <ion-button [disabled]="form.invalid" (click)="register()" expand="block">Valider</ion-button>
+      <ion-button shape="round" [disabled]="form.invalid" (click)="register()" expand="block">Valider</ion-button>
       <ion-label color="danger">{{errorMessage}}</ion-label>
     </form>
-    <ion-button routerLink="/auth" expand="block">J'ai déjà un compte</ion-button>
   </ion-card>
+  <ion-button shape="round" routerLink="/auth" expand="block">J'ai déjà un compte</ion-button>
 </ion-content>
