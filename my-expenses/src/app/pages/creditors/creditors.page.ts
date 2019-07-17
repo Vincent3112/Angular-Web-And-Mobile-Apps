@@ -51,7 +51,7 @@ export class CreditorsPage implements OnInit {
     this.subscriptions.push(subTwo);
   }
 
-  public async onLoadDebt(creditor: Creditor) {
+  public async onLoadCreditor(creditor: Creditor) {
     const modal = await this.modalCtrl.create({
       component: SingleCreditorPage,
       componentProps: {

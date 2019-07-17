@@ -66,5 +66,9 @@ export class DebtService {
         this.unPaidDebtsCollection.doc(username).delete();
     }
 
+    public updateDebt(id: string, debt: Debt): Promise<void> {
+        return this.unPaidDebtsCollection.doc(id).update({ name: debt.name, amount: debt.amount, description: debt.description })
+    }
+
 
 }

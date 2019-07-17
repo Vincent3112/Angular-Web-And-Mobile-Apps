@@ -8,8 +8,8 @@
 <ion-content padding>
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Vous avez déjà un compte ?</ion-card-title>
-      <ion-card-subtitle>Connectez vous !</ion-card-subtitle>
+      <ion-card-title>Connexion</ion-card-title>
+      <!-- <ion-card-subtitle>Connectez vous !</ion-card-subtitle> -->
     </ion-card-header>
     <form [formGroup]="form" padding>
       <mat-form-field>
@@ -20,12 +20,14 @@
         <mat-label>Mot de passe</mat-label>
         <input formControlName="password" type="password" matInput>
       </mat-form-field>
-      <ion-button expand="block" [disabled]="form.invalid" shape="round" type="submit" (click)="login()">Connexion
+      <ion-button expand="block" [disabled]="form.invalid" type="submit" (click)="login()">Connexion
       </ion-button>
       <ion-label color="danger">{{errorMessage}}</ion-label>
     </form>
-  </ion-card>
 
+    <ion-button expand="block" color="primary" routerLink="/register">Je n'ai pas de compte</ion-button>
+  </ion-card>
+  <!-- 
   <ion-card>
     <ion-card-header>
       <ion-card-title>Vous n'avez pas de compte ?</ion-card-title>
@@ -34,6 +36,6 @@
     <ion-button expand="block" color="tertiary" shape="round" routerLink="/register">Inscrivez vous !<ion-icon
         slot="start" name="arrow-forward"></ion-icon>
     </ion-button>
-  </ion-card>
+  </ion-card> -->
 
 </ion-content>

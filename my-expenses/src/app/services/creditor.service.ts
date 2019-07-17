@@ -62,7 +62,11 @@ export class CreditorService {
         this.paidCreditorsCollection.add(creditor);
     }
 
-    public removePaidCreditor(username: string) {
-        this.unPaidCreditorsCollection.doc(username).delete();
+    public removePaidCreditor(id: string) {
+        this.unPaidCreditorsCollection.doc(id).delete();
+    }
+
+    public updateCreditor(id: string, creditor: Creditor): Promise<void> {
+        return this.unPaidCreditorsCollection.doc(id).update({ name: creditor.name, amount: creditor.amount, description: creditor.description })
     }
 }
