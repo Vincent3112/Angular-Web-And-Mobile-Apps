@@ -9,6 +9,7 @@ import { Creditor } from 'src/app/models/creditor';
 import { Debt } from 'src/app/models/debt';
 import { Attribute } from '@angular/compiler';
 
+
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.page.html',
