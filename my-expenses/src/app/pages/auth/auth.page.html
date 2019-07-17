@@ -3,13 +3,10 @@
     <ion-title>Xpense</ion-title>
   </ion-toolbar>
 </ion-header>
-
-
 <ion-content padding>
   <ion-card>
     <ion-card-header>
       <ion-card-title>Connexion</ion-card-title>
-      <!-- <ion-card-subtitle>Connectez vous !</ion-card-subtitle> -->
     </ion-card-header>
     <form [formGroup]="form" padding>
       <mat-form-field>
@@ -24,18 +21,6 @@
       </ion-button>
       <ion-label color="danger">{{errorMessage}}</ion-label>
     </form>
-
     <ion-button expand="block" color="primary" routerLink="/register">Je n'ai pas de compte</ion-button>
   </ion-card>
-  <!-- 
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Vous n'avez pas de compte ?</ion-card-title>
-      <ion-card-subtitle> </ion-card-subtitle>
-    </ion-card-header>
-    <ion-button expand="block" color="tertiary" shape="round" routerLink="/register">Inscrivez vous !<ion-icon
-        slot="start" name="arrow-forward"></ion-icon>
-    </ion-button>
-  </ion-card> -->
-
 </ion-content>

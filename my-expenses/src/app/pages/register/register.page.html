@@ -1,37 +1,29 @@
-<ion-content color="primary">
-  <form [formGroup]="form">
-    <ion-grid>
-      <ion-row color="primary" justify-content-center>
-        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
-          <div text-center>
-            <h3>Crée ton compte</h3>
-          </div>
-          <div padding>
-            <ion-item>
-              <ion-label position="floating">Nom d'utilisateur</ion-label>
-              <ion-input formControlName="username" type="text"></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-label position="floating">Mot de passe</ion-label>
-              <ion-input formControlName="password" type="password">
-              </ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-label position="floating">Confirmer le mot de passe</ion-label>
-              <ion-input formControlName="cpassword" type="password">
-              </ion-input>
-            </ion-item>
-          </div>
-          <ion-label color="danger">{{errorMessage}}</ion-label>
-          <div padding>
-            <ion-button [disabled]="form.invalid" (click)="register()" expand="block">Valider</ion-button>
-          </div>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </form>
-
-
-  <ion-button routerLink="/auth" expand="block">J'ai déjà un compte</ion-button>
-
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Xpense</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Inscription</ion-card-title>
+    </ion-card-header>
+    <form [formGroup]="form" padding>
+      <mat-form-field>
+        <mat-label>Nom d'utilisateur</mat-label>
+        <input formControlName="username" type="text" matInput>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Mot de passe</mat-label>
+        <input formControlName="password" type="password" matInput>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Confirmer le mot de passe</mat-label>
+        <input formControlName="cpassword" type="password" matInput>
+      </mat-form-field>
+      <ion-button [disabled]="form.invalid" (click)="register()" expand="block">Valider</ion-button>
+      <ion-label color="danger">{{errorMessage}}</ion-label>
+    </form>
+    <ion-button routerLink="/auth" expand="block">J'ai déjà un compte</ion-button>
+  </ion-card>
 </ion-content>
