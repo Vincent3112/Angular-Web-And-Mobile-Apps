@@ -12,26 +12,27 @@
       <ion-card-subtitle>Connectez vous !</ion-card-subtitle>
     </ion-card-header>
     <form [formGroup]="form" padding>
-      <ion-item>
-        <ion-label position="floating">Nom d'utilisateur</ion-label>
-        <ion-input formControlName="username" type="text"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">Mot de passe</ion-label>
-        <ion-input formControlName="password" type="password"></ion-input>
-      </ion-item>
-      <ion-label color="danger">{{errorMessage}}</ion-label>
-      <ion-button [disabled]="form.invalid" expand="block" shape="round" type="submit" (click)="login()">Connexion
+      <mat-form-field>
+        <mat-label>Nom d'utilisateur</mat-label>
+        <input formControlName="username" type="text" matInput>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Mot de passe</mat-label>
+        <input formControlName="password" type="password" matInput>
+      </mat-form-field>
+      <ion-button expand="block" [disabled]="form.invalid" shape="round" type="submit" (click)="login()">Connexion
       </ion-button>
+      <ion-label color="danger">{{errorMessage}}</ion-label>
     </form>
   </ion-card>
 
   <ion-card>
     <ion-card-header>
-      <ion-card-subtitle>Vous n'avez pas de compte</ion-card-subtitle>
+      <ion-card-title>Vous n'avez pas de compte ?</ion-card-title>
+      <ion-card-subtitle> </ion-card-subtitle>
     </ion-card-header>
-    <ion-button expand="block" color="tertiary" shape="round" routerLink="/register">S'inscrire <ion-icon slor="start"
-        name="arrow-forward"></ion-icon>
+    <ion-button expand="block" color="tertiary" shape="round" routerLink="/register">Inscrivez vous !<ion-icon
+        slot="start" name="arrow-forward"></ion-icon>
     </ion-button>
   </ion-card>
 

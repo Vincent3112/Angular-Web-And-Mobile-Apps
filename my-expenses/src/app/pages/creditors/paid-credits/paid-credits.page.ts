@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Creditor } from 'src/app/models/creditor';
 import { CreditorService } from 'src/app/services/creditor.service';
 import { ModalController } from '@ionic/angular';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-paid-credits',
@@ -10,15 +11,12 @@ import { ModalController } from '@ionic/angular';
 })
 export class PaidCreditsPage implements OnInit {
 
-  constructor(private creditorService: CreditorService, private modalCtrl: ModalController) { }
+  constructor(private creditorService: CreditorService, private modalCtrl: ModalController, private loginService: LoginService) { }
 
-  paidCredits: Creditor[] = [];
-  
   ngOnInit() {
-    this.paidCredits = this.creditorService.getPaidCredits();
   }
 
-  closeModal(){
+  closeModal() {
     this.modalCtrl.dismiss();
   }
 

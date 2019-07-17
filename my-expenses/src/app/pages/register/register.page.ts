@@ -57,6 +57,7 @@ export class RegisterPage implements OnInit {
       }
       if (this.cpassword != this.password) {
         this.errorMessage = "Les mots de passe ne correspondent pas"
+        this.form.reset();
         console.log("Passwords don't match")
       }
     }

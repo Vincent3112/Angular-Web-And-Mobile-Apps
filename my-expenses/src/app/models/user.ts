@@ -7,7 +7,7 @@ export class User {
         public password: string,
         public unPaidDebts: Debt[],
         public paidDebts: Debt[],
-        public unPaidCredits: Creditor[],
-        public paidCredits: Creditor[]) {
+        public unPaidCreditors: Creditor[],
+        public paidCreditors: Creditor[]) {
     }
 }

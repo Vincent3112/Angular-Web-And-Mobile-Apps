@@ -12,17 +12,17 @@ export class NewCreditorPage implements OnInit {
 
   form: FormGroup;
 
-  constructor(private navCtrl: NavController, private formBuilder: FormBuilder, private creditorService: CreditorService) { 
+  constructor(private navCtrl: NavController, private formBuilder: FormBuilder, private creditorService: CreditorService) {
     this.form = this.formBuilder.group({
-      name : new FormControl('', Validators.compose([
+      name: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(3)
       ])),
-      amount : new FormControl('', Validators.compose([
+      amount: new FormControl('', Validators.compose([
         Validators.required,
         Validators.pattern('^[1-9][0-9]*$')
       ])),
-      description : new FormControl('', Validators.compose([
+      description: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(3)
       ]))
@@ -33,12 +33,12 @@ export class NewCreditorPage implements OnInit {
   }
 
 
-  public onCancel(){
+  public onCancel() {
     this.navCtrl.navigateBack(`menu/tabs/tabs/creditors`)
   }
 
-  public onValidateForm(form: FormGroup){
-    this.creditorService.addCreditor(form);
+  public onValidateForm(form: FormGroup) {
+    this.creditorService.addUnPaidCreditor(form.value);
     this.navCtrl.navigateBack(`menu/tabs/tabs/creditors`);
   }
 

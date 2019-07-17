@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 import { Creditor } from '../models/creditor';
 import { FormGroup } from '@angular/forms';
 import { LoginService } from './login.service';
+import { Observable } from 'rxjs';
+import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
+import { map } from 'rxjs/operators';
+import { Debt } from '../models/debt';
 
 @Injectable({
     providedIn: 'root'
@@ -9,58 +13,56 @@ import { LoginService } from './login.service';
 
 export class CreditorService {
 
-    unPaidCredits: Creditor[] = [
-        {
-            name: 'Vincent',
-            amount: 20,
-            description: 'Pizza',
-            date: new Date(),
-            paid: false,
-            username: "admin"
-        },
-        {
-            name: 'Patrick',
-            amount: 12,
-            description: 'Ciné',
-            date: new Date(),
-            paid: false,
-            username: "admin"
-        }
-    ];
-    paidCredits: Creditor[] = [
-        {
-            name: 'Jean',
-            amount: 200,
-            description: 'Vacances',
-            date: new Date(),
-            paid: true,
-            username: "admin"
-        }
-    ];
+    private paidCreditors: Observable<Creditor[]>;
+    private unPaidCreditors: Observable<Creditor[]>;
+    private unPaidCreditorsCollection: AngularFirestoreCollection<Creditor>;
+    private paidCreditorsCollection: AngularFirestoreCollection<Creditor>;
 
+    constructor(private loginService: LoginService, private afs: AngularFirestore) {
+        this.unPaidCreditorsCollection = this.afs.collection<Creditor>('unPaidCreditors');
+        this.unPaidCreditors = this.unPaidCreditorsCollection.snapshotChanges().pipe(
+            map(actions => {
+                return actions.map(a => {
+                    const data = a.payload.doc.data();
+                    const id = a.payload.doc.id;
+                    return { id, ...data };
+                })
+            })
+        )
 
-    constructor(private loginService: LoginService) {
-
+        this.paidCreditorsCollection = this.afs.collection<Creditor>('paidCreditors');
+        this.paidCreditors = this.paidCreditorsCollection.snapshotChanges().pipe(
+            map(actions => {
+                return actions.map(a => {
+                    const data = a.payload.doc.data();
+                    const id = a.payload.doc.id;
+                    return { id, ...data };
+                })
+            })
+        )
     }
 
-    public addCreditor(form: FormGroup) {
-        form.value.paid = false;
-        form.value.date = new Date();
-        form.value.username = this.loginService.currentUser.username;
-        this.unPaidCredits.push(form.value);
+    public getUnPaidCreditors(): Observable<Creditor[]> {
+        return this.unPaidCreditors;
     }
 
-
-    public getUnPaidCredits() {
-        return this.unPaidCredits;
+    public getPaidCreditors(): Observable<Creditor[]> {
+        return this.paidCreditors;
     }
 
-    public getPaidCredits() {
-        return this.paidCredits;
+    public addUnPaidCreditor(creditor: Creditor) {
+        creditor.paid = false;
+        creditor.date = new Date();
+        creditor.username = this.loginService.currentUser.username;
+        this.unPaidCreditorsCollection.add(creditor);
     }
 
-    public creditIsPaid(id: number, creditor: Creditor) {
-        this.unPaidCredits.splice(id, 1);
-        this.paidCredits.push(creditor);
+    public addPaidCreditor(creditor: Debt) {
+        creditor.date = new Date();
+        this.paidCreditorsCollection.add(creditor);
+    }
+
+    public removePaidCreditor(username: string) {
+        this.unPaidCreditorsCollection.doc(username).delete();
     }
 }

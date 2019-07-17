@@ -36,8 +36,8 @@ export class MenuPage implements OnInit {
 
   public onLogout() {
     this.loginService.authenticated = false;
-    this.loginService.currentUser.paidCredits = [];
-    this.loginService.currentUser.unPaidCredits = [];
+    this.loginService.currentUser.paidCreditors = [];
+    this.loginService.currentUser.unPaidCreditors = [];
     this.loginService.currentUser.paidDebts = [];
     this.loginService.currentUser.unPaidDebts = [];
     this.afAuth.auth.signOut();

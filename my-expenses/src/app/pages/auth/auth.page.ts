@@ -61,7 +61,7 @@ export class AuthPage implements OnInit {
     catch (err) {
       console.dir(err)
       if (err.code === "auth/user-not-found" || err.code === "auth/wrong-password") {
-        this.errorMessage = "Non d'utilisateur ou mot de passe incorrect"
+        this.errorMessage = "Nom d'utilisateur ou mot de passe incorrect"
       }
     }
   }

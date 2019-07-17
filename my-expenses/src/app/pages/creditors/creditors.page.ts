@@ -4,6 +4,8 @@ import { Creditor } from 'src/app/models/creditor';
 import { NavController, ModalController } from '@ionic/angular';
 import { SingleCreditorPage } from './single-creditor/single-creditor.page';
 import { PaidCreditsPage } from './paid-credits/paid-credits.page';
+import { LoginService } from 'src/app/services/login.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-creditors',
@@ -12,15 +14,44 @@ import { PaidCreditsPage } from './paid-credits/paid-credits.page';
 })
 export class CreditorsPage implements OnInit {
 
-  constructor(private creditorService: CreditorService, private modalCtrl: ModalController, private navCtrl: NavController) { }
+  unPaidCreditors: Creditor[];
+  paidCreditors: Creditor[];
+  private subscriptions: Subscription[] = [];
 
-  myCreditors: Creditor[];
-
-  ngOnInit() {
-    this.myCreditors = this.creditorService.getUnPaidCredits();
+  constructor(private creditorService: CreditorService,
+    private modalCtrl: ModalController,
+    private navCtrl: NavController,
+    private loginService: LoginService) {
   }
 
-  public async onLoadCreditor(creditor: Creditor) {
+  ngOnInit() {
+    let subOne = this.creditorService.getUnPaidCreditors().subscribe(
+      data => {
+        this.unPaidCreditors = data
+        this.loginService.currentUser.unPaidCreditors = [];
+        for (let i = 0; i < this.unPaidCreditors.length; i++) {
+          if (this.loginService.currentUser.username === this.unPaidCreditors[i].username) {
+            this.loginService.currentUser.unPaidCreditors.push(this.unPaidCreditors[i]);
+          }
+        }
+      }
+    )
+    this.subscriptions.push(subOne);
+    let subTwo = this.creditorService.getPaidCreditors().subscribe(
+      data => {
+        this.paidCreditors = data
+        this.loginService.currentUser.paidCreditors = [];
+        for (let i = 0; i < this.paidCreditors.length; i++) {
+          if (this.paidCreditors[i].username === this.loginService.currentUser.username) {
+            this.loginService.currentUser.paidCreditors.push(this.paidCreditors[i]);
+          }
+        }
+      }
+    )
+    this.subscriptions.push(subTwo);
+  }
+
+  public async onLoadDebt(creditor: Creditor) {
     const modal = await this.modalCtrl.create({
       component: SingleCreditorPage,
       componentProps: {
@@ -34,16 +65,20 @@ export class CreditorsPage implements OnInit {
     this.navCtrl.navigateForward(`/new-creditor`);
   }
 
-  public onChangeStatus(id: number, creditor: Creditor){
+  public onChangeStatus(creditor: Creditor) {
     creditor.paid = true;
-    this.creditorService.creditIsPaid(id, creditor);
+    this.creditorService.addPaidCreditor(creditor);
+    this.creditorService.removePaidCreditor(creditor.id);
   }
 
-  public async onDisplayHistory(){
+  public async onDisplayHistory() {
     const modal = await this.modalCtrl.create({
       component: PaidCreditsPage
     });
     modal.present();
   }
 
+  ngOnDestroy() {
+    this.subscriptions.forEach(subscrptions => subscrptions.unsubscribe());
+  }
 }
