@@ -15,41 +15,28 @@ import { Router } from '@angular/router';
 })
 export class WelcomePage implements OnInit, OnDestroy {
 
-
-
   unPaidDebts: Debt[];
   unPaidCreditors: Creditor[];
   paidCreditors: Creditor[];
   paidDebts: Debt[];
-
   subscriptions: Subscription[] = [];
   creditsAmount: number = 0;
   debtsAmount: number = 0;
   paidCredits: number = 0;
   paidDebtsAmount: number = 0;
-
   sliderConfig = {
     slidesPerView: 1.2,
-    spaceBetween: 10,
+    spaceBetween: 5,
     centeredSlides: true
   };
 
   constructor(private creditorService: CreditorService,
     private debtService: DebtService,
     private navCtrl: NavController,
-    private loginService: LoginService,
-    private router: Router) {
-
-    console.log("constructor");
-
+    private loginService: LoginService) {
   }
 
   ngOnInit() {
-
-
-
-    console.log("ngoninit");
-
     let subOne = this.debtService.getUnPaidDebt().subscribe(
       data => {
         this.unPaidDebts = data
@@ -104,9 +91,7 @@ export class WelcomePage implements OnInit, OnDestroy {
     )
     this.subscriptions.push(subThree);
   }
-
   ngOnDestroy(): void {
     this.subscriptions.forEach(subscrptions => subscrptions.unsubscribe());
   }
-
 }

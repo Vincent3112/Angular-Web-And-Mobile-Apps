@@ -1,9 +1,3 @@
-<!-- <ion-content>
-
-  <ion-item>Dettes : {{this.loginService.currentUser.unPaidDebts.length}}</ion-item>
-  <ion-item>Créditeurs : {{this.loginService.currentUser.unPaidCreditors.length}}</ion-item>
-</ion-content> -->
-
 <ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="end">
@@ -12,41 +6,46 @@
     <ion-title>Accueil</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <ion-row padding class="category-banner">
     <ion-col class="ion-text-center">
-      Informations sur tes Créditeurs/Dettes
+      Informations sur tes comptes
     </ion-col>
   </ion-row>
-
   <ion-slides [options]="sliderConfig">
     <ion-slide>
       <div>
-        <ion-card color="primary">
+        <ion-card color="primary" class="ion-text-center">
           <ion-card-header>
             <ion-card-title>
               Créditeurs
             </ion-card-title>
+            <ion-card-subtitle>
+              En attentes
+            </ion-card-subtitle>
             <ion-card-content>
-              <ion-item>
+              <ion-item color="primary" class="ion-text-center">
                 <ion-label>
                   Nombre : {{this.loginService.currentUser.unPaidCreditors.length}}
                 </ion-label>
               </ion-item>
-              <ion-item>
+              <ion-item color="primary" class="ion-text-center">
                 <ion-label>
-                  Montant des crédits : {{this.creditsAmount}} €
+                  Montant total : {{this.creditsAmount}} €
                 </ion-label>
               </ion-item>
-              <ion-item>
+              <ion-row style="height: 50px"></ion-row>
+              <ion-card-subtitle>
+                Payés
+              </ion-card-subtitle>
+              <ion-item color="primary" class="ion-text-center">
                 <ion-label>
-                  Crédits remboursés (CR): {{this.loginService.currentUser.paidCreditors.length}}
+                  Nombre : {{this.loginService.currentUser.paidCreditors.length}}
                 </ion-label>
               </ion-item>
-              <ion-item>
+              <ion-item color="primary" class="ion-text-center">
                 <ion-label>
-                  Montant des CR : {{this.paidCredits}} €
+                  Montant total : {{this.paidCredits}} €
                 </ion-label>
               </ion-item>
             </ion-card-content>
@@ -54,7 +53,6 @@
         </ion-card>
       </div>
     </ion-slide>
-
     <ion-slide>
       <div>
         <ion-card color="primary">
@@ -62,23 +60,30 @@
             <ion-card-title>
               Dettes
             </ion-card-title>
+            <ion-card-subtitle>
+              A rembourser
+            </ion-card-subtitle>
             <ion-card-content>
-              <ion-item>
+              <ion-item color="primary" class="ion-text-center">
                 <ion-label>
                   Nombre : {{this.loginService.currentUser.unPaidDebts.length}}
                 </ion-label>
               </ion-item>
-              <ion-item>
+              <ion-item color="primary" class="ion-text-center">
                 <ion-label>
                   Montant des dettes : {{this.debtsAmount}} €
                 </ion-label>
               </ion-item>
-              <ion-item>
+              <ion-row style="height: 50px"></ion-row>
+              <ion-card-subtitle>
+                Payées
+              </ion-card-subtitle>
+              <ion-item color="primary" class="ion-text-center">
                 <ion-label>
                   Dettes remboursées (DR) : {{this.loginService.currentUser.paidDebts.length}}
                 </ion-label>
               </ion-item>
-              <ion-item>
+              <ion-item color="primary" class="ion-text-center">
                 <ion-label>
                   Montant des DR : {{this.paidDebtsAmount}} €
                 </ion-label>
@@ -88,7 +93,5 @@
         </ion-card>
       </div>
     </ion-slide>
-
   </ion-slides>
-
 </ion-content>
