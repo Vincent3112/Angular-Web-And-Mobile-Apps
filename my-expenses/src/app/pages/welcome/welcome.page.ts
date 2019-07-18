@@ -40,6 +40,7 @@ export class WelcomePage implements OnInit, OnDestroy {
     let subOne = this.debtService.getUnPaidDebt().subscribe(
       data => {
         this.unPaidDebts = data
+        this.loginService.currentUser.unPaidDebts = [];
         for (let i = 0; i < this.unPaidDebts.length; i++) {
           if (this.loginService.currentUser.username === this.unPaidDebts[i].username) {
             this.debtsAmount += this.unPaidDebts[i].amount;
@@ -67,6 +68,7 @@ export class WelcomePage implements OnInit, OnDestroy {
     let subTwo = this.creditorService.getUnPaidCreditors().subscribe(
       data => {
         this.unPaidCreditors = data
+        this.loginService.currentUser.unPaidCreditors = [];
         for (let i = 0; i < this.unPaidCreditors.length; i++) {
           if (this.loginService.currentUser.username === this.unPaidCreditors[i].username) {
             this.creditsAmount += this.unPaidCreditors[i].amount;
