@@ -6,32 +6,8 @@
     <ion-title>Accueil</ion-title>
   </ion-toolbar>
 </ion-header>
+
 <ion-content>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Tes créditeurs</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-item>
-        <ion-button *ngIf="creditorsNbr > 1" color="tertiary">{{creditorsNbr}} personnes te doivent des tunes !
-        </ion-button>
-        <ion-button *ngIf="creditorsNbr === 1" color="tertiary">{{creditorsNbr}} personne te doit des tunes !
-        </ion-button>
-        <ion-button *ngIf="creditorsNbr === 0" color="tertiary">Personne te doit des tunes !</ion-button>
-      </ion-item>
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Tes dettes</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-item>
-        <ion-button *ngIf="debtsNumber > 1" color="secondary">Tu dois des tunes à {{debtsNumber}} personnes !
-        </ion-button>
-        <ion-button *ngIf="debtsNumber === 0" color="secondary">Tu dois des tunes à personne !</ion-button>
-        <ion-button *ngIf="debtsNumber === 1" color="secondary">Tu dois des tunes à 1 personne !</ion-button>
-      </ion-item>
-    </ion-card-content>
-  </ion-card>
+  <ion-item>Dettes : {{this.loginService.currentUser.unPaidDebts.length}}</ion-item>
+  <ion-item>Créditeurs : {{this.loginService.currentUser.unPaidCreditors.length}}</ion-item>
 </ion-content>

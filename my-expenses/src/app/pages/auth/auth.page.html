@@ -1,26 +1,32 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Xpense</ion-title>
+    <ion-title class="ion-text-center">Xpense</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content padding>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Connexion</ion-card-title>
-    </ion-card-header>
-    <form [formGroup]="form" padding>
-      <mat-form-field>
-        <mat-label>Nom d'utilisateur</mat-label>
-        <input formControlName="username" type="text" matInput>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Mot de passe</mat-label>
-        <input formControlName="password" type="password" matInput>
-      </mat-form-field>
-      <ion-button shape="round" expand="block" [disabled]="form.invalid" type="submit" (click)="login()">Connexion
-      </ion-button>
-      <ion-label color="danger">{{errorMessage}}</ion-label>
-    </form>
-  </ion-card>
-  <ion-button shape="round" expand="block" color="primary" routerLink="/register">Je n'ai pas de compte</ion-button>
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Connexion</ion-card-title>
+        </ion-card-header>
+        <form [formGroup]="form" padding>
+          <mat-form-field>
+            <mat-label>Nom d'utilisateur</mat-label>
+            <mat-icon matSuffix>account_circle</mat-icon>
+            <input formControlName="username" type="text" matInput>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-icon matSuffix>lock</mat-icon>
+            <mat-label>Mot de passe</mat-label>
+            <input formControlName="password" type="password" matInput>
+          </mat-form-field>
+          <ion-button shape="round" expand="block" [disabled]="form.invalid" type="submit" (click)="login()">Connexion
+          </ion-button>
+          <ion-label color="danger">{{errorMessage}}</ion-label>
+        </form>
+      </ion-card>
+      <ion-button shape="round" expand="block" color="primary" routerLink="/register">Je n'ai pas de compte</ion-button>
+    </ion-col>
+  </ion-row>
 </ion-content>

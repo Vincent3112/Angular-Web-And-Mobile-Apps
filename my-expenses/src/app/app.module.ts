@@ -18,6 +18,10 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
+import { AccordionModule } from 'primeng/accordion';
+import { MenuItem } from 'primeng/api';
+import { ChartModule } from 'primeng/chart';
+
 
 @NgModule({
   declarations: [AppComponent,
@@ -38,7 +42,9 @@ import { MaterialModule } from './material.module';
     AngularFireAuthModule,
     AngularFirestoreModule,
     BrowserAnimationsModule,
-    MaterialModule],
+    MaterialModule,
+    AccordionModule,
+    ChartModule],
   providers: [
     StatusBar,
     SplashScreen,
