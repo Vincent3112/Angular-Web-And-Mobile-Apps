@@ -4,7 +4,8 @@
         "TITLE": "Informations sur tes comptes",
         "GENERAL": {
             "NUMBER": "Nombre",
-            "AMOUNT": "Montant"
+            "AMOUNT": "Montant",
+            "DISCONNECT": "Se déconnecter"
         },
         "CREDITORS": {
             "CREDITORS": "Créditeurs",
@@ -20,5 +21,16 @@
             "header": "Erreur",
             "msg": "Il y a eu un problème dans ton opération"
         }
+    },
+    "AUTH": {
+        "CONNECTION": "Connexion",
+        "REGISTER": "Inscription",
+        "SIGN_UP": "Valider",
+        "NO_ACCOUNT": "Je n'ai pas de compte",
+        "ALREADY_AN_ACCOUNT": "J'ai déjà un comtpe",
+        "USERNAME": "Nom d'utilisateur",
+        "PASSWORD": "Mot de passe",
+        "CPASSWORD": "Confirmer le mot de passe",
+        "ERROR_MESSAGE1": "Nom d'utilisateur ou mot de passe incorrect"
     }
 }

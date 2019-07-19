@@ -4,7 +4,8 @@
         "TITLE": "General informations",
         "GENERAL": {
             "NUMBER": "Number",
-            "AMOUNT": "Amount"
+            "AMOUNT": "Amount",
+            "DISCONNECT": "Sign out"
         },
         "CREDITORS": {
             "CREDITORS": "Creditors",
@@ -20,5 +21,16 @@
             "header": "Erreur",
             "msg": "Il y a eu un problème dans ton opération"
         }
+    },
+    "AUTH": {
+        "CONNECTION": "Sign in",
+        "REGISTER": "Registration",
+        "SIGN_UP": "Sign up",
+        "NO_ACCOUNT": "I don't have an account",
+        "ALREADY_AN_ACCOUNT": "I already have an account",
+        "USERNAME": "Username",
+        "PASSWORD": "Password",
+        "CPASSWORD": "Confirm password",
+        "ERROR_MESSAGE1": "Wrong username or password"
     }
 }

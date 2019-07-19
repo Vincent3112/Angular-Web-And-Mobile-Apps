@@ -8,6 +8,7 @@ import { User } from 'src/app/models/user';
 import { Creditor } from 'src/app/models/creditor';
 import { Debt } from 'src/app/models/debt';
 import { Attribute } from '@angular/compiler';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 
 
 @Component({
@@ -29,7 +30,8 @@ export class AuthPage implements OnInit {
   constructor(private navCtrl: NavController,
     private formBuilder: FormBuilder,
     private afAuth: AngularFireAuth,
-    private loginService: LoginService) {
+    private loginService: LoginService,
+    private translateService: TranslateService) {
     this.form = this.formBuilder.group({
       username: new FormControl('', Validators.compose([
         Validators.required,
@@ -61,7 +63,7 @@ export class AuthPage implements OnInit {
     catch (err) {
       console.dir(err)
       if (err.code === "auth/user-not-found" || err.code === "auth/wrong-password") {
-        this.errorMessage = "Nom d'utilisateur ou mot de passe incorrect"
+        this.errorMessage = this.translateService.instant('AUTH.ERROR_MESSAGE1');
       }
     }
   }

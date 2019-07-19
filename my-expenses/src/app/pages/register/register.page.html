@@ -6,27 +6,28 @@
 <ion-content padding>
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Inscription</ion-card-title>
+      <ion-card-title>{{'AUTH.REGISTER' | translate}}</ion-card-title>
     </ion-card-header>
     <form [formGroup]="form" padding>
       <mat-form-field>
-        <mat-label>Nom d'utilisateur</mat-label>
+        <mat-label>{{'AUTH.USERNAME' | translate}}</mat-label>
         <mat-icon matSuffix>account_circle</mat-icon>
         <input formControlName="username" type="text" matInput>
       </mat-form-field>
       <mat-form-field>
-        <mat-label>Mot de passe</mat-label>
+        <mat-label>{{'AUTH.PASSWORD' | translate}}</mat-label>
         <mat-icon matSuffix>lock</mat-icon>
         <input formControlName="password" type="password" matInput>
       </mat-form-field>
       <mat-form-field>
-        <mat-label>Confirmer le mot de passe</mat-label>
+        <mat-label>{{'AUTH.CPASSWORD' | translate}}</mat-label>
         <mat-icon matSuffix>lock</mat-icon>
         <input formControlName="cpassword" type="password" matInput>
       </mat-form-field>
-      <ion-button shape="round" [disabled]="form.invalid" (click)="register()" expand="block">Valider</ion-button>
+      <ion-button shape="round" [disabled]="form.invalid" (click)="register()" expand="block">
+        {{'AUTH.SIGN_UP' | translate}}</ion-button>
       <ion-label color="danger">{{errorMessage}}</ion-label>
     </form>
   </ion-card>
-  <ion-button shape="round" routerLink="/auth" expand="block">J'ai déjà un compte</ion-button>
+  <ion-button shape="round" routerLink="/auth" expand="block">{{'AUTH.ALREADY_AN_ACCOUNT' | translate}}</ion-button>
 </ion-content>

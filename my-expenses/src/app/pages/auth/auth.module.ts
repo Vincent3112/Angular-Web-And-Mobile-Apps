@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { AuthPage } from './auth.page';
 import { MaterialModule } from '../../material.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 const routes: Routes = [
   {
@@ -19,7 +20,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     IonicModule,
     RouterModule.forChild(routes),
-    MaterialModule
+    MaterialModule,
+    TranslateModule
   ],
   declarations: [AuthPage]
 })
