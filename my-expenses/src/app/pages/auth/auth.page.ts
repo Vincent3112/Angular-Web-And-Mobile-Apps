@@ -1,14 +1,13 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { NavController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { auth } from 'firebase/app';
 import { LoginService } from 'src/app/services/login.service';
 import { User } from 'src/app/models/user';
 import { Creditor } from 'src/app/models/creditor';
 import { Debt } from 'src/app/models/debt';
-import { Attribute } from '@angular/compiler';
-import { TranslateService, TranslateModule } from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
+
 
 
 @Component({
@@ -32,6 +31,7 @@ export class AuthPage implements OnInit {
     private afAuth: AngularFireAuth,
     private loginService: LoginService,
     private translateService: TranslateService) {
+
     this.form = this.formBuilder.group({
       username: new FormControl('', Validators.compose([
         Validators.required,

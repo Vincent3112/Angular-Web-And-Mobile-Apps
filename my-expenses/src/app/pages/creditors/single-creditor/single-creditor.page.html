@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Détails créditeur</ion-title>
+    <ion-title>{{'CREDITOR.DETAILS' | translate}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,20 +10,21 @@
       <ion-input type="text" formControlName="name" [(ngModel)]="creditor.name"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label> $ </ion-label>
+      <ion-label> € </ion-label>
       <ion-input type="number" formControlName="amount" [(ngModel)]="creditor.amount"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label> Pour : </ion-label>
+      <ion-label>{{'CREDITOR.FOR' | translate}}</ion-label>
       <ion-input formControlName="description" [(ngModel)]="creditor.description"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label> Depuis le : {{creditor.date.toDate() | date}} </ion-label>
+      <ion-label> {{'CREDITOR.SINCE' | translate}} {{creditor.date.toDate() | date}} </ion-label>
     </ion-item>
   </form>
 </ion-content>
 
 
 <ion-footer>
-  <ion-button expand="full" [disabled]="form.invalid" button (click)="closeModal()">Fermer</ion-button>
+  <ion-button expand="full" [disabled]="form.invalid" button (click)="closeModal()">{{'CREDITOR.CLOSE' | translate}}
+  </ion-button>
 </ion-footer>

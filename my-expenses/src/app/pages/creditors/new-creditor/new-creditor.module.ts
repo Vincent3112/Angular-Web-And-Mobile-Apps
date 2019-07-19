@@ -2,9 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-
+import { TranslateModule } from '@ngx-translate/core';
 import { IonicModule } from '@ionic/angular';
-
 import { NewCreditorPage } from './new-creditor.page';
 
 const routes: Routes = [
@@ -19,8 +18,9 @@ const routes: Routes = [
     CommonModule,
     ReactiveFormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    TranslateModule
   ],
   declarations: [NewCreditorPage]
 })
-export class NewCreditorPageModule {}
+export class NewCreditorPageModule { }

@@ -2,9 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-
+import { TranslateModule } from '@ngx-translate/core';
 import { IonicModule } from '@ionic/angular';
-
 import { SingleCreditorPage } from './single-creditor.page';
 
 const routes: Routes = [
@@ -20,8 +19,9 @@ const routes: Routes = [
     ReactiveFormsModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    TranslateModule
   ],
   declarations: [SingleCreditorPage]
 })
-export class SingleCreditorPageModule {}
+export class SingleCreditorPageModule { }

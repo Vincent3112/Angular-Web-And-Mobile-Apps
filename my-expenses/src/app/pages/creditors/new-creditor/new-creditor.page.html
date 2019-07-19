@@ -1,28 +1,30 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Ajout d'un créditeur</ion-title>
+    <ion-title>{{'CREDITOR.ADD' | translate}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
   <form [formGroup]="form">
     <ion-item>
-      <ion-label>Nom : </ion-label>
+      <ion-label>{{'CREDITOR.NAME' | translate}}</ion-label>
       <ion-input formControlName="name" type="text" placeholder="Anatole"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Montant : </ion-label>
+      <ion-label>{{'CREDITOR.AMOUNT' | translate}}</ion-label>
       <ion-input formControlName="amount" type="number" placeholder="$"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Pour : </ion-label>
+      <ion-label>{{'CREDITOR.FOR' | translate}}</ion-label>
       <ion-input formControlName="description" type="text" placeholder="Pizza, ciné, ..."></ion-input>
     </ion-item>
-    <ion-button (click)="onValidateForm(form)" [disabled]="form.invalid" type="submit" color="primary" expand="full">Confirmer</ion-button>
+    <ion-button (click)="onValidateForm(form)" [disabled]="form.invalid" type="submit" color="primary" expand="full">
+      {{'CREDITOR.CONFIRM' | translate}}</ion-button>
   </form>
 
 </ion-content>
 
 <ion-footer>
-    <ion-button (click)="onCancel()" color="primary" expand="full" shape="round" fill="outline">Annuler</ion-button>
+  <ion-button (click)="onCancel()" color="primary" expand="full" shape="round" fill="outline">
+    {{'CREDITOR.CANCEL' | translate}}</ion-button>
 </ion-footer>

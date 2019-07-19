@@ -5,7 +5,9 @@ import { NavController, ModalController } from '@ionic/angular';
 import { SingleCreditorPage } from './single-creditor/single-creditor.page';
 import { PaidCreditsPage } from './paid-credits/paid-credits.page';
 import { LoginService } from 'src/app/services/login.service';
-import { Subscription } from 'rxjs';
+import { Subscription } from 'rxjs'
+import { LanguagePopoverPage } from '../language-popover/language-popover.page';
+import { PopoverController } from '@ionic/angular';
 
 @Component({
   selector: 'app-creditors',
@@ -21,7 +23,8 @@ export class CreditorsPage implements OnInit {
   constructor(private creditorService: CreditorService,
     private modalCtrl: ModalController,
     private navCtrl: NavController,
-    private loginService: LoginService) {
+    private loginService: LoginService,
+    private popoverCtrl: PopoverController) {
   }
 
   ngOnInit() {
@@ -76,6 +79,14 @@ export class CreditorsPage implements OnInit {
       component: PaidCreditsPage
     });
     modal.present();
+  }
+
+  async openLanguagePopover(ev) {
+    const popover = await this.popoverCtrl.create({
+      component: LanguagePopoverPage,
+      event: ev
+    });
+    await popover.present();
   }
 
   ngOnDestroy() {

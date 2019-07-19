@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterEvent } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { LanguagePopoverPage } from '../language-popover/language-popover.page';
+import { PopoverController } from '@ionic/angular';
 
 @Component({
   selector: 'app-menu',
@@ -21,7 +23,7 @@ export class MenuPage implements OnInit {
   selectedPath = '';
 
   constructor(private router: Router, private loginService: LoginService,
-    private afAuth: AngularFireAuth) {
+    private afAuth: AngularFireAuth, private popoverCtrl: PopoverController) {
     this.router.events.subscribe(
       (event: RouterEvent) => {
         if (event && event.url) {
@@ -41,6 +43,14 @@ export class MenuPage implements OnInit {
     this.loginService.currentUser.paidDebts = [];
     this.loginService.currentUser.unPaidDebts = [];
     this.afAuth.auth.signOut();
+  }
+
+  async openLanguagePopover(ev) {
+    const popover = await this.popoverCtrl.create({
+      component: LanguagePopoverPage,
+      event: ev
+    });
+    await popover.present();
   }
 
 }

@@ -1,5 +1,6 @@
 {
     "HOME": {
+        "LANGUAGE": "Changer la langue",
         "HOME": "Accueil",
         "TITLE": "Informations sur tes comptes",
         "GENERAL": {
@@ -32,5 +33,40 @@
         "PASSWORD": "Mot de passe",
         "CPASSWORD": "Confirmer le mot de passe",
         "ERROR_MESSAGE1": "Nom d'utilisateur ou mot de passe incorrect"
+    },
+    "CREDITOR": {
+        "CREDITORS": "Tes créditeurs",
+        "OWES_YOU": "te doit {{amount}} €",
+        "DETAILS": "Détails créditeur",
+        "FOR": "Pour : ",
+        "SINCE": "Depuis le : ",
+        "CLOSE": "Fermer",
+        "PAID_CREDITS": "Historique des créditeurs",
+        "GAVE_BACK": " t'a remboursé {{amount}} euros",
+        "ON_THE": " le ",
+        "ADD": "Ajout d'un créditeur",
+        "NAME": "Nom : ",
+        "AMOUNT": "Montant : ",
+        "CONFIRM": "Confirmer",
+        "CANCEL": "Annuler"
+    },
+    "DEBT": {
+        "DEBTS": "Tes dettes",
+        "PAID_DEBTS": "Dettes payées",
+        "NEW_DEBT": "Nouvelle dette",
+        "PAID": "Payé",
+        "I_OWE": "Je dois ",
+        "YOU_OWE": "je lui dois {{amount}} €",
+        "DETAILS": "Détails de la dette",
+        "TO": "à ",
+        "FOR": "pour : ",
+        "SINCE": "Depuis : ",
+        "CLOSE": "Fermer",
+        "GAVE_BACK": "J'ai remboursé {{name}} de ",
+        "ON_THE": " le ",
+        "NAME": "Nom : ",
+        "AMOUNT": "Montant : ",
+        "CONFIRM": "Confirmer",
+        "CANCEL": "Annuler"
     }
 }

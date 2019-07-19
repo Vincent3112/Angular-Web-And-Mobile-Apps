@@ -6,6 +6,8 @@ import { SingleDebtPage } from './single-debt/single-debt.page';
 import { PaidDebtsPage } from './paid-debts/paid-debts.page';
 import { LoginService } from 'src/app/services/login.service';
 import { Observable, Subject, Subscription } from 'rxjs';
+import { LanguagePopoverPage } from '../language-popover/language-popover.page';
+import { PopoverController } from '@ionic/angular';
 
 @Component({
   selector: 'app-debts',
@@ -21,7 +23,8 @@ export class DebtsPage implements OnInit {
   constructor(private debtService: DebtService,
     private modalCtrl: ModalController,
     private navCtrl: NavController,
-    private loginService: LoginService) {
+    private loginService: LoginService,
+    private popoverCtrl: PopoverController) {
   }
 
   ngOnInit() {
@@ -76,6 +79,14 @@ export class DebtsPage implements OnInit {
       component: PaidDebtsPage
     });
     modal.present();
+  }
+
+  async openLanguagePopover(ev) {
+    const popover = await this.popoverCtrl.create({
+      component: LanguagePopoverPage,
+      event: ev
+    });
+    await popover.present();
   }
 
   ngOnDestroy() {

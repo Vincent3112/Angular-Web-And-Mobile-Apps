@@ -1,5 +1,6 @@
 {
     "HOME": {
+        "LANGUAGE": "Switch language",
         "HOME": "Home",
         "TITLE": "General informations",
         "GENERAL": {
@@ -32,5 +33,40 @@
         "PASSWORD": "Password",
         "CPASSWORD": "Confirm password",
         "ERROR_MESSAGE1": "Wrong username or password"
+    },
+    "CREDITOR": {
+        "CREDITORS": "Your creditors",
+        "OWES_YOU": "owes you {{amount}} €",
+        "DETAILS": "Creditor's details",
+        "FOR": "For : ",
+        "SINCE": "Since : ",
+        "CLOSE": "Close",
+        "PAID_CREDITS": "Paid credits",
+        "GAVE_BACK": " gave you {{amount}} euros back",
+        "ON_THE": " on the ",
+        "ADD": "New creditor",
+        "NAME": "Name : ",
+        "AMOUNT": "Amount : ",
+        "CONFIRM": "Confirm",
+        "CANCEL": "Cancel"
+    },
+    "DEBT": {
+        "DEBTS": "Your debts",
+        "PAID_DEBTS": "Paid debts",
+        "NEW_DEBT": "New debt",
+        "PAID": "Paid",
+        "I_OWE": "I owe ",
+        "YOU_OWE": "I owe him {{amount}} €",
+        "DETAILS": "Debt's details",
+        "TO": "to ",
+        "FOR": "for : ",
+        "SINCE": "Since : ",
+        "CLOSE": "Close",
+        "GAVE_BACK": "I gave {{name}} back ",
+        "ON_THE": " on the ",
+        "NAME": "Name : ",
+        "AMOUNT": "Amount : ",
+        "CONFIRM": "Confirm",
+        "CANCEL": "Cancel"
     }
 }

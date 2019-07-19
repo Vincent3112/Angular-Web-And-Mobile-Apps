@@ -27,7 +27,7 @@ export class SingleCreditorPage implements OnInit {
     this.form = this.formBuilder.group({
       name: new FormControl(this.creditor.name, Validators.compose([
         Validators.required,
-        Validators.minLength(4)
+        Validators.minLength(2)
       ])),
       amount: new FormControl(this.creditor.amount, Validators.compose([
         Validators.required,
@@ -35,7 +35,7 @@ export class SingleCreditorPage implements OnInit {
       ])),
       description: new FormControl(this.creditor.description, Validators.compose([
         Validators.required,
-        Validators.minLength(3)
+        Validators.minLength(2)
       ]))
     });
   }

@@ -6,10 +6,8 @@ import { NavController } from '@ionic/angular';
 import { LoginService } from 'src/app/services/login.service';
 import { Debt } from 'src/app/models/debt';
 import { Subscription } from 'rxjs';
-import { Router } from '@angular/router';
 import { LanguagePopoverPage } from '../language-popover/language-popover.page';
-import { PopoverController, AlertController } from '@ionic/angular';
-import { TranslateService } from '@ngx-translate/core';
+import { PopoverController } from '@ionic/angular';
 
 @Component({
   selector: 'app-welcome',
@@ -23,10 +21,10 @@ export class WelcomePage implements OnInit, OnDestroy {
   paidCreditors: Creditor[];
   paidDebts: Debt[];
   subscriptions: Subscription[] = [];
-  creditsAmount: number = 0;
-  debtsAmount: number = 0;
-  paidCredits: number = 0;
-  paidDebtsAmount: number = 0;
+  creditsAmount: number;
+  debtsAmount: number;
+  paidCredits: number;
+  paidDebtsAmount: number;
   sliderConfig = {
     slidesPerView: 1.4,
     spaceBetween: 5,
@@ -57,6 +55,7 @@ export class WelcomePage implements OnInit, OnDestroy {
         for (let i = 0; i < this.unPaidDebts.length; i++) {
           if (this.loginService.currentUser.username === this.unPaidDebts[i].username) {
             this.debtsAmount += this.unPaidDebts[i].amount;
+            console.log(this.debtsAmount);
             this.loginService.currentUser.unPaidDebts.push(this.unPaidDebts[i]);
           }
         }
