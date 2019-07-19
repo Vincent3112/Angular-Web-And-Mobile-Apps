@@ -20,14 +20,13 @@
             </ion-label>
           </ion-item>
         </ion-menu-toggle>
+        <ion-item tappable (click)="openLanguagePopover($event)" routerDirection="root">
+          <ion-icon name="flag" slot="start"></ion-icon>
+          {{'HOME.LANGUAGE' | translate}}
+        </ion-item>
         <ion-item tappable routerLink="/auth" (click)="onLogout()" routerDirection="root">
           <ion-icon name="log-out" slot="start"></ion-icon>
           {{'HOME.GENERAL.DISCONNECT' | translate}}
-        </ion-item>
-        <ion-item>
-          <ion-icon tappable (click)="openLanguagePopover($event)" slot="start" name="flag" routerDirection="root">
-          </ion-icon>
-          {{'HOME.LANGUAGE' | translate}}
         </ion-item>
       </ion-list>
     </ion-content>
