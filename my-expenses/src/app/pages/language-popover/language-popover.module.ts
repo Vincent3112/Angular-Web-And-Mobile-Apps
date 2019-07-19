@@ -2,15 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
+
 import { IonicModule } from '@ionic/angular';
-import { ChartModule } from 'primeng/chart';
-import { WelcomePage } from './welcome.page';
-import { TranslateModule } from '@ngx-translate/core';
+
+import { LanguagePopoverPage } from './language-popover.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: WelcomePage
+    component: LanguagePopoverPage
   }
 ];
 
@@ -19,10 +19,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes),
-    ChartModule,
-    TranslateModule
+    RouterModule.forChild(routes)
   ],
-  declarations: [WelcomePage]
+  declarations: [LanguagePopoverPage]
 })
-export class WelcomePageModule { }
+export class LanguagePopoverPageModule {}

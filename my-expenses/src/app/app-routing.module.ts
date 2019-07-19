@@ -8,7 +8,8 @@ const routes: Routes = [
   { path: 'menu', loadChildren: './pages/menu/menu.module#MenuPageModule', canActivate: [AuthGuardService] },
   { path: 'new-creditor', loadChildren: './pages/creditors/new-creditor/new-creditor.module#NewCreditorPageModule', canActivate: [AuthGuardService] },
   { path: 'new-debt', loadChildren: './pages/debts/new-debt/new-debt.module#NewDebtPageModule', canActivate: [AuthGuardService] },
-  { path: 'register', loadChildren: './pages/register/register.module#RegisterPageModule' }
+  { path: 'register', loadChildren: './pages/register/register.module#RegisterPageModule' },  { path: 'language-popover', loadChildren: './pages/language-popover/language-popover.module#LanguagePopoverPageModule' }
+
 
 ];
 

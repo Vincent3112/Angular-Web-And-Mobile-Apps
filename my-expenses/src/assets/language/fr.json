@@ -1,0 +1,24 @@
+{
+    "HOME": {
+        "HOME": "Accueil",
+        "TITLE": "Informations sur tes comptes",
+        "GENERAL": {
+            "NUMBER": "Nombre",
+            "AMOUNT": "Montant"
+        },
+        "CREDITORS": {
+            "CREDITORS": "Créditeurs",
+            "TO_BE_PAID": "En attentes",
+            "PAID": "Payés"
+        },
+        "DEBTS": {
+            "DEBTS": "Dettes",
+            "TO_BE_PAID": "A rembourser",
+            "PAID": "Payées"
+        },
+        "ALERT": {
+            "header": "Erreur",
+            "msg": "Il y a eu un problème dans ton opération"
+        }
+    }
+}

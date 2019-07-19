@@ -19,9 +19,16 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { AccordionModule } from 'primeng/accordion';
-import { MenuItem } from 'primeng/api';
 import { ChartModule } from 'primeng/chart';
-
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { IonicStorageModule } from '@ionic/storage';
+import { LanguagePopoverPage } from './pages/language-popover/language-popover.page';
+import { LanguagePopoverPageModule } from './pages/language-popover/language-popover.module';
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, 'assets/language/', '.json');
+}
 
 @NgModule({
   declarations: [AppComponent,
@@ -44,7 +51,17 @@ import { ChartModule } from 'primeng/chart';
     BrowserAnimationsModule,
     MaterialModule,
     AccordionModule,
-    ChartModule],
+    ChartModule,
+    HttpClientModule,
+    IonicStorageModule.forRoot(),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    }),
+    LanguagePopoverPageModule],
   providers: [
     StatusBar,
     SplashScreen,

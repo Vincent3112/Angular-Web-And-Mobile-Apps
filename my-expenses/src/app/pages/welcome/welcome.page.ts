@@ -7,6 +7,9 @@ import { LoginService } from 'src/app/services/login.service';
 import { Debt } from 'src/app/models/debt';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { LanguagePopoverPage } from '../language-popover/language-popover.page';
+import { PopoverController, AlertController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-welcome',
@@ -25,22 +28,32 @@ export class WelcomePage implements OnInit, OnDestroy {
   paidCredits: number = 0;
   paidDebtsAmount: number = 0;
   sliderConfig = {
-    slidesPerView: 1.2,
+    slidesPerView: 1.4,
     spaceBetween: 5,
     centeredSlides: true
   };
+  public currencyList: String[];
 
   constructor(private creditorService: CreditorService,
     private debtService: DebtService,
     private navCtrl: NavController,
-    private loginService: LoginService) {
+    private loginService: LoginService,
+    private popoverCtrl: PopoverController) {
   }
 
   ngOnInit() {
+
+    this.currencyList = [
+      'fr',
+      'en',
+      'de'
+    ]
+
     let subOne = this.debtService.getUnPaidDebt().subscribe(
       data => {
-        this.unPaidDebts = data
+        this.unPaidDebts = data;
         this.loginService.currentUser.unPaidDebts = [];
+        this.debtsAmount = 0;
         for (let i = 0; i < this.unPaidDebts.length; i++) {
           if (this.loginService.currentUser.username === this.unPaidDebts[i].username) {
             this.debtsAmount += this.unPaidDebts[i].amount;
@@ -55,9 +68,11 @@ export class WelcomePage implements OnInit, OnDestroy {
       data => {
         this.paidDebts = data
         this.loginService.currentUser.paidDebts = [];
+        this.paidDebtsAmount = 0;
         for (let i = 0; i < this.paidDebts.length; i++) {
           if (this.paidDebts[i].username === this.loginService.currentUser.username) {
             this.paidDebtsAmount += this.paidDebts[i].amount;
+            console.log(this.paidDebtsAmount);
             this.loginService.currentUser.paidDebts.push(this.paidDebts[i]);
           }
         }
@@ -69,9 +84,11 @@ export class WelcomePage implements OnInit, OnDestroy {
       data => {
         this.unPaidCreditors = data
         this.loginService.currentUser.unPaidCreditors = [];
+        this.creditsAmount = 0;
         for (let i = 0; i < this.unPaidCreditors.length; i++) {
           if (this.loginService.currentUser.username === this.unPaidCreditors[i].username) {
             this.creditsAmount += this.unPaidCreditors[i].amount;
+            console.log(this.creditsAmount);
             this.loginService.currentUser.unPaidCreditors.push(this.unPaidCreditors[i]);
           }
         }
@@ -83,6 +100,7 @@ export class WelcomePage implements OnInit, OnDestroy {
       data => {
         this.paidCreditors = data
         this.loginService.currentUser.paidCreditors = [];
+        this.paidCredits = 0;
         for (let i = 0; i < this.paidCreditors.length; i++) {
           if (this.paidCreditors[i].username === this.loginService.currentUser.username) {
             this.paidCredits += this.paidCreditors[i].amount;
@@ -93,7 +111,19 @@ export class WelcomePage implements OnInit, OnDestroy {
     )
     this.subscriptions.push(subThree);
   }
+
+  async openLanguagePopover(ev) {
+    const popover = await this.popoverCtrl.create({
+      component: LanguagePopoverPage,
+      event: ev
+    });
+    await popover.present();
+  }
+
+
   ngOnDestroy(): void {
     this.subscriptions.forEach(subscrptions => subscrptions.unsubscribe());
   }
+
+
 }

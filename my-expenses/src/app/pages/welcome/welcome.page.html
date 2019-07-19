@@ -1,15 +1,28 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="end">
+      <!-- <ion-button>
+        <ion-icon name="flag"></ion-icon>
+      </ion-button> -->
+      <!-- <ion-select>
+        <ion-select-option *ngFor="let cc of currencyList" value="{{ cc }}">
+          <span class='flag-icon flag-icon-{{ cc.slice(0, -1) }}'></span>
+          {{ cc }}
+        </ion-select-option>
+      </ion-select> -->
+      <ion-button (click)="openLanguagePopover($event)">
+        <ion-icon name="flag" slot="icon-only">
+        </ion-icon>
+      </ion-button>
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Accueil</ion-title>
+    <ion-title>{{'HOME.HOME' | translate}}</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
   <ion-row padding class="category-banner">
     <ion-col class="ion-text-center">
-      Informations sur tes comptes
+      {{'HOME.TITLE' | translate}}
     </ion-col>
   </ion-row>
   <ion-slides [options]="sliderConfig">
@@ -18,34 +31,34 @@
         <ion-card color="primary" class="ion-text-center">
           <ion-card-header>
             <ion-card-title>
-              Créditeurs
+              {{'HOME.CREDITORS.CREDITORS' | translate}}
             </ion-card-title>
             <ion-card-subtitle>
-              En attentes
+              {{'HOME.CREDITORS.TO_BE_PAID' | translate}}
             </ion-card-subtitle>
             <ion-card-content>
               <ion-item color="primary" class="ion-text-center">
                 <ion-label>
-                  Nombre : {{this.loginService.currentUser.unPaidCreditors.length}}
+                  {{'HOME.GENERAL.NUMBER' | translate}} : {{this.loginService.currentUser.unPaidCreditors.length}}
                 </ion-label>
               </ion-item>
               <ion-item color="primary" class="ion-text-center">
                 <ion-label>
-                  Montant total : {{this.creditsAmount}} €
+                  {{'HOME.GENERAL.AMOUNT' | translate}} : {{this.creditsAmount}} €
                 </ion-label>
               </ion-item>
               <ion-row style="height: 50px"></ion-row>
               <ion-card-subtitle>
-                Payés
+                {{'HOME.CREDITORS.PAID' | translate}}
               </ion-card-subtitle>
               <ion-item color="primary" class="ion-text-center">
                 <ion-label>
-                  Nombre : {{this.loginService.currentUser.paidCreditors.length}}
+                  {{'HOME.GENERAL.NUMBER' | translate}} : {{this.loginService.currentUser.paidCreditors.length}}
                 </ion-label>
               </ion-item>
               <ion-item color="primary" class="ion-text-center">
                 <ion-label>
-                  Montant total : {{this.paidCredits}} €
+                  {{'HOME.GENERAL.AMOUNT' | translate}} : {{this.paidCredits}} €
                 </ion-label>
               </ion-item>
             </ion-card-content>
@@ -58,34 +71,34 @@
         <ion-card color="primary">
           <ion-card-header>
             <ion-card-title>
-              Dettes
+              {{'HOME.DEBTS.DEBTS' | translate}}
             </ion-card-title>
             <ion-card-subtitle>
-              A rembourser
+              {{'HOME.DEBTS.TO_BE_PAID' | translate}}
             </ion-card-subtitle>
             <ion-card-content>
               <ion-item color="primary" class="ion-text-center">
                 <ion-label>
-                  Nombre : {{this.loginService.currentUser.unPaidDebts.length}}
+                  {{'HOME.GENERAL.NUMBER' | translate}} : {{this.loginService.currentUser.unPaidDebts.length}}
                 </ion-label>
               </ion-item>
               <ion-item color="primary" class="ion-text-center">
                 <ion-label>
-                  Montant des dettes : {{this.debtsAmount}} €
+                  {{'HOME.GENERAL.AMOUNT' | translate}} : {{this.debtsAmount}} €
                 </ion-label>
               </ion-item>
               <ion-row style="height: 50px"></ion-row>
               <ion-card-subtitle>
-                Payées
+                {{'HOME.DEBTS.PAID' | translate}}
               </ion-card-subtitle>
               <ion-item color="primary" class="ion-text-center">
                 <ion-label>
-                  Dettes remboursées (DR) : {{this.loginService.currentUser.paidDebts.length}}
+                  {{'HOME.GENERAL.NUMBER' | translate}} : {{this.loginService.currentUser.paidDebts.length}}
                 </ion-label>
               </ion-item>
               <ion-item color="primary" class="ion-text-center">
                 <ion-label>
-                  Montant des DR : {{this.paidDebtsAmount}} €
+                  {{'HOME.GENERAL.AMOUNT' | translate}} : {{this.paidDebtsAmount}} €
                 </ion-label>
               </ion-item>
             </ion-card-content>
