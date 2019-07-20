@@ -1,34 +1,31 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title class="ion-text-center">Xpense</ion-title>
+    <ion-title>Xpense</ion-title>
+    <ion-icon name="flag" (click)="openLanguagePopover($event)" slot="end" class="flag"></ion-icon>
   </ion-toolbar>
 </ion-header>
 <ion-content padding>
-  <ion-row>
-    <ion-col>
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>{{'AUTH.CONNECTION' | translate}} </ion-card-title>
-        </ion-card-header>
-        <form [formGroup]="form" padding>
-          <mat-form-field>
-            <mat-label>{{'AUTH.USERNAME' | translate}}</mat-label>
-            <mat-icon matSuffix>account_circle</mat-icon>
-            <input formControlName="username" type="text" matInput>
-          </mat-form-field>
-          <mat-form-field>
-            <mat-icon matSuffix>lock</mat-icon>
-            <mat-label>{{'AUTH.PASSWORD' | translate}}</mat-label>
-            <input formControlName="password" type="password" matInput>
-          </mat-form-field>
-          <ion-button shape="round" expand="block" [disabled]="form.invalid" type="submit" (click)="login()">
-            {{'AUTH.CONNECTION' | translate}}
-          </ion-button>
-          <ion-label color="danger">{{errorMessage}}</ion-label>
-        </form>
-      </ion-card>
-      <ion-button shape="round" expand="block" color="primary" routerLink="/register">{{'AUTH.NO_ACCOUNT' | translate}}
+  <ion-card class="ion-text-center">
+    <ion-card-header>
+      <ion-card-title>{{'AUTH.CONNECTION' | translate}} </ion-card-title>
+    </ion-card-header>
+    <form [formGroup]="form" padding>
+      <mat-form-field>
+        <mat-label>{{'AUTH.USERNAME' | translate}}</mat-label>
+        <mat-icon matSuffix>account_circle</mat-icon>
+        <input formControlName="username" type="text" matInput>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-icon matSuffix>lock</mat-icon>
+        <mat-label>{{'AUTH.PASSWORD' | translate}}</mat-label>
+        <input formControlName="password" type="password" matInput>
+      </mat-form-field>
+      <ion-button shape="round" expand="block" [disabled]="form.invalid" type="submit" (click)="login()">
+        {{'AUTH.CONNECTION' | translate}}
       </ion-button>
-    </ion-col>
-  </ion-row>
+      <ion-label color="danger">{{errorMessage}}</ion-label>
+    </form>
+  </ion-card>
+  <ion-button shape="round" expand="block" color="primary" routerLink="/register">{{'AUTH.NO_ACCOUNT' | translate}}
+  </ion-button>
 </ion-content>

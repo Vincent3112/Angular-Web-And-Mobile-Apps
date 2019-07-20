@@ -7,6 +7,8 @@ import { User } from 'src/app/models/user';
 import { Creditor } from 'src/app/models/creditor';
 import { Debt } from 'src/app/models/debt';
 import { TranslateService } from '@ngx-translate/core';
+import { LanguagePopoverPage } from '../language-popover/language-popover.page';
+import { PopoverController } from '@ionic/angular';
 
 
 
@@ -30,7 +32,8 @@ export class AuthPage implements OnInit {
     private formBuilder: FormBuilder,
     private afAuth: AngularFireAuth,
     private loginService: LoginService,
-    private translateService: TranslateService) {
+    private translateService: TranslateService,
+    private popoverCtrl: PopoverController) {
 
     this.form = this.formBuilder.group({
       username: new FormControl('', Validators.compose([
@@ -66,6 +69,15 @@ export class AuthPage implements OnInit {
         this.errorMessage = this.translateService.instant('AUTH.ERROR_MESSAGE1');
       }
     }
+  }
+
+
+  async openLanguagePopover(ev) {
+    const popover = await this.popoverCtrl.create({
+      component: LanguagePopoverPage,
+      event: ev
+    });
+    await popover.present();
   }
 
 }

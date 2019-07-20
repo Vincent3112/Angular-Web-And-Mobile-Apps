@@ -25,7 +25,7 @@
     },
     "AUTH": {
         "CONNECTION": "Sign in",
-        "REGISTER": "Registration",
+        "REGISTER": "Register",
         "SIGN_UP": "Sign up",
         "NO_ACCOUNT": "I don't have an account",
         "ALREADY_AN_ACCOUNT": "I already have an account",

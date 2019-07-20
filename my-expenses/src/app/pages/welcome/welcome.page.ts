@@ -111,13 +111,6 @@ export class WelcomePage implements OnInit, OnDestroy {
     this.subscriptions.push(subThree);
   }
 
-  async openLanguagePopover(ev) {
-    const popover = await this.popoverCtrl.create({
-      component: LanguagePopoverPage,
-      event: ev
-    });
-    await popover.present();
-  }
 
 
   ngOnDestroy(): void {

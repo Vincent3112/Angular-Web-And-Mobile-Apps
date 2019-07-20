@@ -4,6 +4,8 @@ import { NavController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { LoginService } from 'src/app/services/login.service';
 import { User } from 'src/app/models/user';
+import { LanguagePopoverPage } from '../language-popover/language-popover.page';
+import { PopoverController } from '@ionic/angular';
 
 @Component({
   selector: 'app-register',
@@ -21,7 +23,8 @@ export class RegisterPage implements OnInit {
   constructor(private navCtrl: NavController,
     private formBuilder: FormBuilder,
     private afAuth: AngularFireAuth,
-    private loginService: LoginService) {
+    private loginService: LoginService,
+    private popoverCtrl: PopoverController) {
 
     this.form = this.formBuilder.group({
       username: new FormControl('', Validators.compose([
@@ -68,5 +71,14 @@ export class RegisterPage implements OnInit {
         this.form.reset();
       }
     }
+  }
+
+
+  async openLanguagePopover(ev) {
+    const popover = await this.popoverCtrl.create({
+      component: LanguagePopoverPage,
+      event: ev
+    });
+    await popover.present();
   }
 }
