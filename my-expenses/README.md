@@ -10,7 +10,7 @@ Once you cloned the remote repository to your local one, make sure you install a
 
 After all these dependencies are added to your project, run :
 
-$ ionic serve
+```$ ionic serve```
 
 
 If any error appear please refer to the Technical Support section at the bottom of this page.
@@ -23,31 +23,37 @@ Xpense's UI/UX is based on many different dependencies
 ### Angular Material
 To download Angular Material dependencies to the project, run:
 
-$ npm install --save @angular/material @angular/cdk @angular/animations
+```$ npm install --save @angular/material @angular/cdk @angular/animations```
 
 
 ### Hammer JS
 To download Hammer JS dependencies to the project, run:
 
-$ npm install --save hammerjs
+```$ npm install --save hammerjs```
 
 
 ### Prime NG
 To download Prime NG dependencies to the project, run:
 
-$ npm install primeng --save
+```$ npm install primeng --save```
 
-$ npm install primeicons --save
+```$ npm install primeicons --save```
 
 
 ### Chart JS
 To download Chart JS dependencies to the project, run:
 
-$ npm install chart.js --save
+```$ npm install chart.js --save```
 
 
 ## Technical suport
 
 If after running "ionic serve" inside the directory of your project, errors still appear, please install the dependencies that are missing by running : npm install the-missing-dependency
 
-After that, run : "npm install" and "ionic serve" again.
+After that, run : 
+
+```$ npm install```
+
+and then 
+
+```$ ionic serve```
