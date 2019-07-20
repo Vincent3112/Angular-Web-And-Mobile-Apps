@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, ToastController } from '@ionic/angular';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { CreditorService } from 'src/app/services/creditor.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-new-creditor',
@@ -12,7 +13,12 @@ export class NewCreditorPage implements OnInit {
 
   form: FormGroup;
 
-  constructor(private navCtrl: NavController, private formBuilder: FormBuilder, private creditorService: CreditorService) {
+  constructor(private navCtrl: NavController,
+    private formBuilder: FormBuilder,
+    private creditorService: CreditorService,
+    private toastCtrl: ToastController,
+    private translateService: TranslateService) {
+
     this.form = this.formBuilder.group({
       name: new FormControl('', Validators.compose([
         Validators.required,
@@ -40,6 +46,18 @@ export class NewCreditorPage implements OnInit {
   public onValidateForm(form: FormGroup) {
     this.creditorService.addUnPaidCreditor(form.value);
     this.navCtrl.navigateBack(`menu/tabs/tabs/creditors`);
+    this.showToast();
+  }
+
+  private async showToast() {
+    let toast = await this.toastCtrl.create({
+      message: this.translateService.instant('CREDITOR.CREATED'),
+      duration: 2000,
+      position: 'top',
+      color: 'success',
+      animated: true
+    });
+    toast.present();
   }
 
 }

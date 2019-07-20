@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { NavParams, ModalController } from '@ionic/angular';
+import { NavParams, ModalController, ToastController } from '@ionic/angular';
 import { Creditor } from 'src/app/models/creditor';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { CreditorService } from 'src/app/services/creditor.service';
 import { LoginService } from 'src/app/services/login.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-single-creditor',
@@ -20,7 +21,9 @@ export class SingleCreditorPage implements OnInit {
     private modalCtrl: ModalController,
     private formBuilder: FormBuilder,
     private creditorService: CreditorService,
-    private loginService: LoginService) { }
+    private loginService: LoginService,
+    private toastCtrl: ToastController,
+    private translateService: TranslateService) { }
 
   ngOnInit() {
     this.creditor = this.navParams.get('creditor_infos');
@@ -41,7 +44,21 @@ export class SingleCreditorPage implements OnInit {
   }
 
   closeModal() {
+    if (this.form.dirty) {
+      this.showToast();
+    }
     this.creditorService.updateCreditor(this.creditor.id, this.creditor);
     this.modalCtrl.dismiss();
+  }
+
+  private async showToast() {
+    let toast = await this.toastCtrl.create({
+      message: this.translateService.instant('CREDITOR.UPDATED'),
+      duration: 2000,
+      position: 'top',
+      color: 'success',
+      animated: true
+    });
+    toast.present();
   }
 }

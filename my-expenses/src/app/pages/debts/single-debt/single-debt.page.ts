@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Debt } from 'src/app/models/debt';
-import { NavParams, ModalController } from '@ionic/angular';
+import { NavParams, ModalController, ToastController } from '@ionic/angular';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { DebtService } from 'src/app/services/debt.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-single-debt',
@@ -17,7 +18,9 @@ export class SingleDebtPage implements OnInit {
   constructor(private navParams: NavParams,
     private modalCtrl: ModalController,
     private formBuilder: FormBuilder,
-    private debtService: DebtService) { }
+    private debtService: DebtService,
+    private toastCtrl: ToastController,
+    private translateService: TranslateService) { }
 
   ngOnInit() {
     this.debt = this.navParams.get('debt_infos');
@@ -38,7 +41,21 @@ export class SingleDebtPage implements OnInit {
   }
 
   closeModal() {
+    if (this.form.dirty) {
+      this.showToast();
+    }
     this.debtService.updateDebt(this.debt.id, this.debt);
     this.modalCtrl.dismiss();
+  }
+
+  private async showToast() {
+    let toast = await this.toastCtrl.create({
+      message: this.translateService.instant('DEBT.UPDATED'),
+      duration: 2000,
+      position: 'top',
+      color: 'success',
+      animated: true
+    });
+    toast.present();
   }
 }

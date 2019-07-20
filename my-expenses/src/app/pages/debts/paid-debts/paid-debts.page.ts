@@ -13,7 +13,8 @@ import { Observable } from 'rxjs';
 })
 export class PaidDebtsPage implements OnInit {
 
-  constructor(private modalCtrl: ModalController, private loginService: LoginService) { }
+  constructor(private modalCtrl: ModalController,
+              private loginService: LoginService) { }
 
 
   ngOnInit() {

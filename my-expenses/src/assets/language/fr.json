@@ -49,7 +49,10 @@
         "NAME": "Nom : ",
         "AMOUNT": "Montant : ",
         "CONFIRM": "Confirmer",
-        "CANCEL": "Annuler"
+        "CANCEL": "Annuler",
+        "CREATED": "Créditeur ajouté avec succès !",
+        "UPDATED": "Informations du créditeur modifiées avec succès !",
+        "REIMBURSED": "Super ! Tu t'es fait remboursé !"
     },
     "DEBT": {
         "DEBTS": "Tes dettes",
@@ -68,6 +71,9 @@
         "NAME": "Nom : ",
         "AMOUNT": "Montant : ",
         "CONFIRM": "Confirmer",
-        "CANCEL": "Annuler"
+        "CANCEL": "Annuler",
+        "CREATED": "Dette ajoutée avec succès !",
+        "UPDATED": "Informations de la dette modifiées avec succès !",
+        "REIMBURSED": "Super ! T'as remboursé ton pote !"
     }
 }

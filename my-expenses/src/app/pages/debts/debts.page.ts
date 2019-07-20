@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DebtService } from 'src/app/services/debt.service';
-import { ModalController, NavController } from '@ionic/angular';
+import { ModalController, NavController, ToastController } from '@ionic/angular';
 import { Debt } from 'src/app/models/debt';
 import { SingleDebtPage } from './single-debt/single-debt.page';
 import { PaidDebtsPage } from './paid-debts/paid-debts.page';
@@ -8,6 +8,7 @@ import { LoginService } from 'src/app/services/login.service';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { LanguagePopoverPage } from '../language-popover/language-popover.page';
 import { PopoverController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-debts',
@@ -24,7 +25,9 @@ export class DebtsPage implements OnInit {
     private modalCtrl: ModalController,
     private navCtrl: NavController,
     private loginService: LoginService,
-    private popoverCtrl: PopoverController) {
+    private popoverCtrl: PopoverController,
+    private toastCtrl: ToastController,
+    private translateService: TranslateService) {
   }
 
   ngOnInit() {
@@ -69,6 +72,7 @@ export class DebtsPage implements OnInit {
   }
 
   public onChangeStatus(debt: Debt) {
+    this.showToast()
     debt.paid = true;
     this.debtService.addPaidDebt(debt);
     this.debtService.removePaidDebt(debt.id);
@@ -87,6 +91,17 @@ export class DebtsPage implements OnInit {
       event: ev
     });
     await popover.present();
+  }
+
+  private async showToast() {
+    let toast = await this.toastCtrl.create({
+      message: this.translateService.instant('DEBT.REIMBURSED'),
+      duration: 2000,
+      position: 'top',
+      color: 'success',
+      animated: true
+    });
+    toast.present();
   }
 
   ngOnDestroy() {

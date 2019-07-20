@@ -49,7 +49,10 @@
         "NAME": "Name : ",
         "AMOUNT": "Amount : ",
         "CONFIRM": "Confirm",
-        "CANCEL": "Cancel"
+        "CANCEL": "Cancel",
+        "CREATED": "Creditor successfully created !",
+        "UPDATED": "Creditor successfully updated !",
+        "REIMBURSED": "Yeah ! You got your money back !"
     },
     "DEBT": {
         "DEBTS": "Your debts",
@@ -68,6 +71,9 @@
         "NAME": "Name : ",
         "AMOUNT": "Amount : ",
         "CONFIRM": "Confirm",
-        "CANCEL": "Cancel"
+        "CANCEL": "Cancel",
+        "CREATED": "Debt successfully created !",
+        "UPDATED": "Debt successfully updated !",
+        "REIMBURSED": "Yeah ! You gave your friend his money back !"
     }
 }

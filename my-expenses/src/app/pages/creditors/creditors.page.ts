@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { CreditorService } from 'src/app/services/creditor.service';
 import { Creditor } from 'src/app/models/creditor';
-import { NavController, ModalController } from '@ionic/angular';
+import { NavController, ModalController, ToastController } from '@ionic/angular';
 import { SingleCreditorPage } from './single-creditor/single-creditor.page';
 import { PaidCreditsPage } from './paid-credits/paid-credits.page';
 import { LoginService } from 'src/app/services/login.service';
 import { Subscription } from 'rxjs'
 import { LanguagePopoverPage } from '../language-popover/language-popover.page';
 import { PopoverController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-creditors',
@@ -24,7 +25,9 @@ export class CreditorsPage implements OnInit {
     private modalCtrl: ModalController,
     private navCtrl: NavController,
     private loginService: LoginService,
-    private popoverCtrl: PopoverController) {
+    private popoverCtrl: PopoverController,
+    private toastCtrl: ToastController,
+    private translateService: TranslateService) {
   }
 
   ngOnInit() {
@@ -69,6 +72,7 @@ export class CreditorsPage implements OnInit {
   }
 
   public onChangeStatus(creditor: Creditor) {
+    this.showToast()
     creditor.paid = true;
     this.creditorService.addPaidCreditor(creditor);
     this.creditorService.removePaidCreditor(creditor.id);
@@ -87,6 +91,17 @@ export class CreditorsPage implements OnInit {
       event: ev
     });
     await popover.present();
+  }
+
+  private async showToast() {
+    let toast = await this.toastCtrl.create({
+      message: this.translateService.instant('CREDITOR.REIMBURSED'),
+      duration: 2000,
+      position: 'top',
+      color: 'success',
+      animated: true
+    });
+    toast.present();
   }
 
 
