@@ -89,6 +89,7 @@ export class CreditorsPage implements OnInit {
     await popover.present();
   }
 
+
   ngOnDestroy() {
     this.subscriptions.forEach(subscrptions => subscrptions.unsubscribe());
   }

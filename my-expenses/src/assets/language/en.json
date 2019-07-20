@@ -39,6 +39,7 @@
         "OWES_YOU": "owes you {{amount}} €",
         "DETAILS": "Creditor's details",
         "FOR": "For : ",
+        "PAID": "Paid",
         "SINCE": "Since : ",
         "CLOSE": "Close",
         "PAID_CREDITS": "Paid credits",
