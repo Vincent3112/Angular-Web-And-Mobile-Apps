@@ -25,8 +25,10 @@
     },
     "AUTH": {
         "CONNECTION": "Connexion",
+        "SIGNING_IN": "Connexion en cours...",
         "REGISTER": "Inscription",
         "SIGN_UP": "Valider",
+        "SIGNING_UP": "Création du compte...",
         "NO_ACCOUNT": "Je n'ai pas de compte",
         "ALREADY_AN_ACCOUNT": "J'ai déjà un comtpe",
         "USERNAME": "Nom d'utilisateur",

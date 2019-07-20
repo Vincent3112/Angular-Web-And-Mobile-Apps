@@ -6,6 +6,7 @@ import { LoginService } from 'src/app/services/login.service';
 import { User } from 'src/app/models/user';
 import { LanguagePopoverPage } from '../language-popover/language-popover.page';
 import { PopoverController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-register',
@@ -24,7 +25,8 @@ export class RegisterPage implements OnInit {
     private formBuilder: FormBuilder,
     private afAuth: AngularFireAuth,
     private loginService: LoginService,
-    private popoverCtrl: PopoverController) {
+    private popoverCtrl: PopoverController,
+    private translateService: TranslateService) {
 
     this.form = this.formBuilder.group({
       username: new FormControl('', Validators.compose([

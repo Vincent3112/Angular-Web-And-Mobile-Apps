@@ -57,9 +57,9 @@ export class AuthPage implements OnInit {
     try {
       const res = await this.afAuth.auth.signInWithEmailAndPassword(this.username + "@douze.com", this.password);
       if (res) {
+        this.navCtrl.navigateForward('/menu/tabs/tabs/welcome');
         this.loginService.authenticated = true;
         console.log("logged in !");
-        this.navCtrl.navigateForward('/menu/tabs/tabs/welcome');
         this.loginService.currentUser = new User(this.username, this.password, this.unPaidDebts, this.paidDebts, this.unPaidCredits, this.paidCredits);
       }
     }

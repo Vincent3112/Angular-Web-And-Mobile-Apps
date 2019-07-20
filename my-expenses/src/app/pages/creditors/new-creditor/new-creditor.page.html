@@ -3,7 +3,6 @@
     <ion-title>{{'CREDITOR.ADD' | translate}}</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content padding>
   <form [formGroup]="form">
     <ion-item>
@@ -18,12 +17,11 @@
       <ion-label>{{'CREDITOR.FOR' | translate}}</ion-label>
       <ion-input formControlName="description" type="text" placeholder="Pizza, ciné, ..."></ion-input>
     </ion-item>
-    <ion-button (click)="onValidateForm(form)" [disabled]="form.invalid" type="submit" color="primary" expand="full">
+    <ion-button (click)="onValidateForm(form)" [disabled]="form.invalid" type="submit" shape="round" color="primary"
+      expand="full">
       {{'CREDITOR.CONFIRM' | translate}}</ion-button>
   </form>
-
 </ion-content>
-
 <ion-footer>
   <ion-button (click)="onCancel()" color="primary" expand="full" shape="round" fill="outline">
     {{'CREDITOR.CANCEL' | translate}}</ion-button>

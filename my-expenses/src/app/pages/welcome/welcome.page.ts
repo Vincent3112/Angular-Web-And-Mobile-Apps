@@ -26,11 +26,10 @@ export class WelcomePage implements OnInit, OnDestroy {
   paidCredits: number;
   paidDebtsAmount: number;
   sliderConfig = {
-    slidesPerView: 1.4,
+    slidesPerView: 1.3,
     spaceBetween: 5,
     centeredSlides: true
   };
-  public currencyList: String[];
 
   constructor(private creditorService: CreditorService,
     private debtService: DebtService,
@@ -40,13 +39,6 @@ export class WelcomePage implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-
-    this.currencyList = [
-      'fr',
-      'en',
-      'de'
-    ]
-
     let subOne = this.debtService.getUnPaidDebt().subscribe(
       data => {
         this.unPaidDebts = data;
@@ -55,7 +47,6 @@ export class WelcomePage implements OnInit, OnDestroy {
         for (let i = 0; i < this.unPaidDebts.length; i++) {
           if (this.loginService.currentUser.username === this.unPaidDebts[i].username) {
             this.debtsAmount += this.unPaidDebts[i].amount;
-            console.log(this.debtsAmount);
             this.loginService.currentUser.unPaidDebts.push(this.unPaidDebts[i]);
           }
         }
@@ -71,7 +62,6 @@ export class WelcomePage implements OnInit, OnDestroy {
         for (let i = 0; i < this.paidDebts.length; i++) {
           if (this.paidDebts[i].username === this.loginService.currentUser.username) {
             this.paidDebtsAmount += this.paidDebts[i].amount;
-            console.log(this.paidDebtsAmount);
             this.loginService.currentUser.paidDebts.push(this.paidDebts[i]);
           }
         }
@@ -87,7 +77,6 @@ export class WelcomePage implements OnInit, OnDestroy {
         for (let i = 0; i < this.unPaidCreditors.length; i++) {
           if (this.loginService.currentUser.username === this.unPaidCreditors[i].username) {
             this.creditsAmount += this.unPaidCreditors[i].amount;
-            console.log(this.creditsAmount);
             this.loginService.currentUser.unPaidCreditors.push(this.unPaidCreditors[i]);
           }
         }

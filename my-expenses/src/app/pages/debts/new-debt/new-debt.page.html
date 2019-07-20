@@ -18,7 +18,8 @@
       <ion-label>{{'DEBT.FOR' | translate}} </ion-label>
       <ion-input formControlName="description" type="text" placeholder="Pizza, ciné, ..."></ion-input>
     </ion-item>
-    <ion-button (click)="onValidateForm(form)" [disabled]="form.invalid" type="submit" color="primary" expand="full">
+    <ion-button (click)="onValidateForm(form)" [disabled]="form.invalid" type="submit" shape="round" color="primary"
+      expand="full">
       {{'DEBT.CONFIRM' | translate}}</ion-button>
   </form>
 
