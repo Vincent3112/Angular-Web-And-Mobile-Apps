@@ -10,6 +10,9 @@ import { LanguageService } from './services/language.service';
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
+
+  showSplash = true;
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -23,7 +26,6 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-
       this.languageService.setInitialAppLanguage();
     });
   }
