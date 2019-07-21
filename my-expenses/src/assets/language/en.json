@@ -6,7 +6,9 @@
         "GENERAL": {
             "NUMBER": "Number",
             "AMOUNT": "Amount",
-            "DISCONNECT": "Sign out"
+            "DISCONNECT": "Sign out",
+            "NEW_CRED_NAME": "John Smith",
+            "NEW_CRED_FOR": "Tacobell, uber, ..."
         },
         "CREDITORS": {
             "CREDITORS": "Creditors",
@@ -19,8 +21,9 @@
             "PAID": "Paid"
         },
         "ALERT": {
-            "header": "Erreur",
-            "msg": "Il y a eu un problème dans ton opération"
+            "TITLE": "Add Creditor/Debt",
+            "MESSAGE": "What do you want to do ?",
+            "CANCEL": "Cancel"
         }
     },
     "AUTH": {
@@ -60,6 +63,7 @@
         "DEBTS": "Your debts",
         "PAID_DEBTS": "Paid debts",
         "NEW_DEBT": "New debt",
+        "ADD": "New debt",
         "PAID": "Paid",
         "I_OWE": "I owe ",
         "YOU_OWE": "I owe him {{amount}} €",

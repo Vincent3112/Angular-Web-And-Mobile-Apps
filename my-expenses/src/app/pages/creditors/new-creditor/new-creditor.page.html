@@ -7,15 +7,17 @@
   <form [formGroup]="form">
     <ion-item>
       <ion-label>{{'CREDITOR.NAME' | translate}}</ion-label>
-      <ion-input formControlName="name" type="text" placeholder="Anatole"></ion-input>
+      <ion-input formControlName="name" type="text" placeholder="{{'HOME.GENERAL.NEW_CRED_NAME' | translate}}">
+      </ion-input>
     </ion-item>
     <ion-item>
       <ion-label>{{'CREDITOR.AMOUNT' | translate}}</ion-label>
-      <ion-input formControlName="amount" type="number" placeholder="$"></ion-input>
+      <ion-input formControlName="amount" type="number" placeholder="€"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>{{'CREDITOR.FOR' | translate}}</ion-label>
-      <ion-input formControlName="description" type="text" placeholder="Pizza, ciné, ..."></ion-input>
+      <ion-input formControlName="description" type="text" placeholder="{{'HOME.GENERAL.NEW_CRED_FOR' | translate}}">
+      </ion-input>
     </ion-item>
     <ion-button (click)="onValidateForm(form)" [disabled]="form.invalid" type="submit" shape="round" color="primary"
       expand="full">

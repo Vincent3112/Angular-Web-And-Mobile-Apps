@@ -6,7 +6,9 @@
         "GENERAL": {
             "NUMBER": "Nombre",
             "AMOUNT": "Montant",
-            "DISCONNECT": "Se déconnecter"
+            "DISCONNECT": "Se déconnecter",
+            "NEW_CRED_NAME": "Yves Remord",
+            "NEW_CRED_FOR": "Apéro, voyage, ..."
         },
         "CREDITORS": {
             "CREDITORS": "Créditeurs",
@@ -19,8 +21,9 @@
             "PAID": "Payées"
         },
         "ALERT": {
-            "header": "Erreur",
-            "msg": "Il y a eu un problème dans ton opération"
+            "TITLE": "Ajouter Créditeur/Dette",
+            "MESSAGE": "Que souhaitez vous faire ?",
+            "CANCEL": "Annuler"
         }
     },
     "AUTH": {
@@ -61,6 +64,7 @@
         "PAID_DEBTS": "Dettes payées",
         "NEW_DEBT": "Nouvelle dette",
         "PAID": "Payée",
+        "ADD": "Ajout d'une dette",
         "I_OWE": "Je dois ",
         "YOU_OWE": "je lui dois {{amount}} €",
         "DETAILS": "Détails de la dette",

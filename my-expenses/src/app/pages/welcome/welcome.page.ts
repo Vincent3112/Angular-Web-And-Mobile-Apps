@@ -2,12 +2,13 @@ import { Component, OnInit, ElementRef, ViewChild, OnDestroy } from '@angular/co
 import { Creditor } from 'src/app/models/creditor';
 import { CreditorService } from 'src/app/services/creditor.service';
 import { DebtService } from 'src/app/services/debt.service';
-import { NavController } from '@ionic/angular';
+import { NavController, AlertController } from '@ionic/angular';
 import { LoginService } from 'src/app/services/login.service';
 import { Debt } from 'src/app/models/debt';
 import { Subscription } from 'rxjs';
 import { LanguagePopoverPage } from '../language-popover/language-popover.page';
 import { PopoverController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-welcome',
@@ -35,7 +36,9 @@ export class WelcomePage implements OnInit, OnDestroy {
     private debtService: DebtService,
     private navCtrl: NavController,
     private loginService: LoginService,
-    private popoverCtrl: PopoverController) {
+    private popoverCtrl: PopoverController,
+    private alertController: AlertController,
+    private translateService: TranslateService) {
   }
 
   ngOnInit() {
@@ -100,6 +103,31 @@ export class WelcomePage implements OnInit, OnDestroy {
     this.subscriptions.push(subThree);
   }
 
+
+  public async onAdd() {
+    const alert = await this.alertController.create({
+      header: this.translateService.instant('HOME.ALERT.TITLE'),
+      message: this.translateService.instant('HOME.ALERT.MESSAGE'),
+      buttons: [
+        {
+          text: this.translateService.instant('CREDITOR.ADD'),
+          handler: () => {
+            this.navCtrl.navigateForward('/new-creditor');
+          }
+        }, {
+          text: this.translateService.instant('DEBT.ADD'),
+          handler: () => {
+            this.navCtrl.navigateForward('/new-debt');
+          }
+        },
+        {
+          text: this.translateService.instant('HOME.ALERT.CANCEL'),
+          role: 'cancel',
+        }
+      ]
+    });
+    await alert.present();
+  }
 
 
   ngOnDestroy(): void {
