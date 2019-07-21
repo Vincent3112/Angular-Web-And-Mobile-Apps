@@ -7,13 +7,13 @@
 <ion-content padding>
   <form [formGroup]="form">
     <ion-item>
-      <ion-label>{{'DEBT.NAME' | translate}} </ion-label>
-      <ion-input formControlName="name" type="text" placeholder="{{'HOME.GENERAL.NEW_CRED_NAME' | translate}}">
-      </ion-input>
+      <ion-label>{{'DEBT.I_OWE' | translate}} </ion-label>
+      <ion-input formControlName="amount" type="number" placeholder="€"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>{{'DEBT.AMOUNT' | translate}} </ion-label>
-      <ion-input formControlName="amount" type="number" placeholder="€"></ion-input>
+      <ion-label>{{'DEBT.TO' | translate}} </ion-label>
+      <ion-input formControlName="name" type="text" placeholder="{{'HOME.GENERAL.NEW_CRED_NAME' | translate}}">
+      </ion-input>
     </ion-item>
     <ion-item>
       <ion-label>{{'DEBT.FOR' | translate}} </ion-label>
