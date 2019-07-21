@@ -59,12 +59,10 @@ export class AuthPage implements OnInit {
       if (res) {
         this.navCtrl.navigateForward('/menu/tabs/tabs/welcome');
         this.loginService.authenticated = true;
-        console.log("logged in !");
         this.loginService.currentUser = new User(this.username, this.password, this.unPaidDebts, this.paidDebts, this.unPaidCredits, this.paidCredits);
       }
     }
     catch (err) {
-      console.dir(err)
       if (err.code === "auth/user-not-found" || err.code === "auth/wrong-password") {
         this.errorMessage = this.translateService.instant('AUTH.ERROR_MESSAGE1');
       }

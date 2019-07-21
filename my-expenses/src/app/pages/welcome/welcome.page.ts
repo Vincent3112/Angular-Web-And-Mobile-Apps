@@ -108,6 +108,7 @@ export class WelcomePage implements OnInit, OnDestroy {
     const alert = await this.alertController.create({
       header: this.translateService.instant('HOME.ALERT.TITLE'),
       message: this.translateService.instant('HOME.ALERT.MESSAGE'),
+      cssClass: 'alert',
       buttons: [
         {
           text: this.translateService.instant('CREDITOR.ADD'),
