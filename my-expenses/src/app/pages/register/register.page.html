@@ -10,21 +10,26 @@
       <ion-card-title>{{'AUTH.REGISTER' | translate}}</ion-card-title>
     </ion-card-header>
     <form [formGroup]="form" padding>
-      <mat-form-field>
-        <mat-label>{{'AUTH.USERNAME' | translate}}</mat-label>
-        <mat-icon matSuffix>account_circle</mat-icon>
-        <input formControlName="username" type="text" matInput>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>{{'AUTH.PASSWORD' | translate}}</mat-label>
-        <mat-icon matSuffix>lock</mat-icon>
-        <input formControlName="password" type="password" matInput>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>{{'AUTH.CPASSWORD' | translate}}</mat-label>
-        <mat-icon matSuffix>lock</mat-icon>
-        <input formControlName="cpassword" type="password" matInput>
-      </mat-form-field>
+      <mat-grid-list cols="1" rowHeight="60px">
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-icon matSuffix>account_circle</mat-icon>
+            <input formControlName="username" placeholder="{{'AUTH.USERNAME' | translate}}" type="text" matInput>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-icon matSuffix>lock</mat-icon>
+            <input formControlName="password" placeholder="{{'AUTH.PASSWORD' | translate}}" type="password" matInput>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-icon matSuffix>lock</mat-icon>
+            <input formControlName="cpassword" placeholder="{{'AUTH.CPASSWORD' | translate}}" type="password" matInput>
+          </mat-form-field>
+        </mat-grid-tile>
+      </mat-grid-list>
       <ion-button shape="round" [disabled]="form.invalid" (click)="register()" expand="block">
         {{'AUTH.SIGN_UP' | translate}}</ion-button>
       <ion-label color="danger">{{errorMessage}}</ion-label>

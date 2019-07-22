@@ -6,7 +6,7 @@ import { MaterialModule } from '../../material.module';
 import { IonicModule } from '@ionic/angular';
 import { RegisterPage } from './register.page';
 import { TranslateModule } from '@ngx-translate/core';
-
+import { MatGridListModule } from '@angular/material/grid-list';
 const routes: Routes = [
   {
     path: '',
@@ -21,7 +21,8 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes),
     MaterialModule,
-    TranslateModule
+    TranslateModule,
+    MatGridListModule
   ],
   declarations: [RegisterPage]
 })

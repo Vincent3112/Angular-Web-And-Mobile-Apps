@@ -10,14 +10,20 @@
       <ion-card-title>{{'AUTH.CONNECTION' | translate}} </ion-card-title>
     </ion-card-header>
     <form [formGroup]="form" padding>
-      <mat-form-field>
-        <mat-icon matSuffix>account_circle</mat-icon>
-        <input formControlName="username" placeholder="{{'AUTH.USERNAME' | translate}}" type="text" matInput>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-icon matSuffix>lock</mat-icon>
-        <input formControlName="password" placeholder="{{'AUTH.PASSWORD' | translate}}" type="password" matInput>
-      </mat-form-field>
+      <mat-grid-list cols="1" rowHeight="60px">
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-icon matSuffix>account_circle</mat-icon>
+            <input formControlName="username" placeholder="{{'AUTH.USERNAME' | translate}}" type="text" matInput>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-icon matSuffix>lock</mat-icon>
+            <input formControlName="password" placeholder="{{'AUTH.PASSWORD' | translate}}" type="password" matInput>
+          </mat-form-field>
+        </mat-grid-tile>
+      </mat-grid-list>
       <ion-button shape="round" expand="block" [disabled]="form.invalid" type="submit" (click)="login()">
         {{'AUTH.CONNECTION' | translate}}
       </ion-button>
