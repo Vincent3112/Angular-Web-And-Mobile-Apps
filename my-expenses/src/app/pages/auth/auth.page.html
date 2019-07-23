@@ -23,10 +23,12 @@
             <input formControlName="password" placeholder="{{'AUTH.PASSWORD' | translate}}" type="password" matInput>
           </mat-form-field>
         </mat-grid-tile>
+        <mat-grid-tile>
+          <ion-button shape="round" [disabled]="form.invalid" type="submit" (click)="login()">
+            {{'AUTH.CONNECTION' | translate}}
+          </ion-button>
+        </mat-grid-tile>
       </mat-grid-list>
-      <ion-button shape="round" expand="block" [disabled]="form.invalid" type="submit" (click)="login()">
-        {{'AUTH.CONNECTION' | translate}}
-      </ion-button>
       <ion-label color="danger">{{errorMessage}}</ion-label>
     </form>
   </ion-card>

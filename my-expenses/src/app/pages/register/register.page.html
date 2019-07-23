@@ -29,9 +29,11 @@
             <input formControlName="cpassword" placeholder="{{'AUTH.CPASSWORD' | translate}}" type="password" matInput>
           </mat-form-field>
         </mat-grid-tile>
+        <mat-grid-tile>
+          <ion-button shape="round" [disabled]="form.invalid" (click)="register()">
+            {{'AUTH.SIGN_UP' | translate}}</ion-button>
+        </mat-grid-tile>
       </mat-grid-list>
-      <ion-button shape="round" [disabled]="form.invalid" (click)="register()" expand="block">
-        {{'AUTH.SIGN_UP' | translate}}</ion-button>
       <ion-label color="danger">{{errorMessage}}</ion-label>
     </form>
   </ion-card>

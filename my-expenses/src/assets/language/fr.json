@@ -7,7 +7,7 @@
             "NUMBER": "Nombre",
             "AMOUNT": "Montant",
             "DISCONNECT": "Se déconnecter",
-            "NEW_CRED_NAME": "Yves Remord",
+            "NEW_CRED_NAME": "Jean Neymar",
             "NEW_CRED_FOR": "Apéro, voyage, ..."
         },
         "CREDITORS": {
@@ -30,7 +30,7 @@
         "CONNECTION": "Connexion",
         "SIGNING_IN": "Connexion en cours...",
         "REGISTER": "Inscription",
-        "SIGN_UP": "Valider",
+        "SIGN_UP": "Créer mon compte",
         "SIGNING_UP": "Création du compte...",
         "NO_ACCOUNT": "Je n'ai pas de compte",
         "ALREADY_AN_ACCOUNT": "J'ai déjà un comtpe",
