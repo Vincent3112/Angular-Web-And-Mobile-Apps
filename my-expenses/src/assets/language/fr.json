@@ -40,6 +40,8 @@
         "ERROR_MESSAGE1": "Nom d'utilisateur ou mot de passe incorrect"
     },
     "CREDITOR": {
+        "UNPAID_EMPTY": "Il n'y a encore aucun créditeur enregistré",
+        "PAID_EMPTY": "L'historique des créditeurs est vide",
         "CREDITORS": "Tes créditeurs",
         "OWES_YOU": "te doit {{amount}} €",
         "OWES_ME": "Me doit :",
@@ -61,6 +63,8 @@
         "REIMBURSED": "Super ! Tu t'es fait remboursé !"
     },
     "DEBT": {
+        "UNPAID_EMPTY": "Il n'y a encore aucune dette enregistrée",
+        "PAID_EMPTY": "L'historique des dettes est vide",
         "DEBTS": "Tes dettes",
         "PAID_DEBTS": "Dettes payées",
         "NEW_DEBT": "Nouvelle dette",

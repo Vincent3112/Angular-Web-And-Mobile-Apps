@@ -8,6 +8,9 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-label *ngIf="this.loginService.currentUser.unPaidCreditors.length === 0">
+    {{'CREDITOR.UNPAID_EMPTY' | translate}}
+  </ion-label>
   <ion-item-sliding *ngFor="let creditor of this.loginService.currentUser.unPaidCreditors; let i = index">
     <ion-item (click)="onLoadCreditor(creditor)">
       <ion-label>

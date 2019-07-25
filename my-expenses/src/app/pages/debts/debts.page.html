@@ -8,6 +8,9 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-label *ngIf="this.loginService.currentUser.unPaidDebts.length === 0">
+    {{'DEBT.UNPAID_EMPTY' | translate}}
+  </ion-label>
   <ion-item-sliding *ngFor="let debt of this.loginService.currentUser.unPaidDebts; let i = index">
     <ion-item lines="inset" (click)="onLoadDebt(debt)">
       <ion-label>
