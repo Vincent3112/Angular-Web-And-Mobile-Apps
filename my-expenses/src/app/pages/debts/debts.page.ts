@@ -31,6 +31,10 @@ export class DebtsPage implements OnInit {
   }
 
   ngOnInit() {
+    this.initData();
+  }
+
+  public initData() {
     let subOne = this.debtService.getUnPaidDebt().subscribe(
       data => {
         this.unPaidDebts = data
@@ -107,5 +111,4 @@ export class DebtsPage implements OnInit {
   ngOnDestroy() {
     this.subscriptions.forEach(subscrptions => subscrptions.unsubscribe());
   }
-
 }

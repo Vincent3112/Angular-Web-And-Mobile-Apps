@@ -12,7 +12,5 @@ export class LoginService {
   authenticated: boolean = false;
   currentUser: User;
 
-
   constructor() { }
-
 }

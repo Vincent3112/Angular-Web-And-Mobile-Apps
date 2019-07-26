@@ -40,8 +40,8 @@
         "ERROR_MESSAGE1": "Wrong username or password"
     },
     "CREDITOR": {
-        "UNPAID_EMPTY": "There are no unpaid credits recorded yet",
-        "PAID_EMPTY": "There are no paid credits recorded yet",
+        "UNPAID_EMPTY": "There are no unpaid credits recorded",
+        "PAID_EMPTY": "There are no paid credits recorded",
         "CREDITORS": "Your creditors",
         "OWES_YOU": "owes you {{amount}} €",
         "OWES_ME": "Owes me :",
@@ -63,8 +63,8 @@
         "REIMBURSED": "Yeah ! You got your money back !"
     },
     "DEBT": {
-        "UNPAID_EMPTY": "There are no unpaid debts recorded yet",
-        "PAID_EMPTY": "There are no paid debts recorded yet",
+        "UNPAID_EMPTY": "There are no unpaid debts recorded",
+        "PAID_EMPTY": "There are no paid debts recorded",
         "DEBTS": "Your debts",
         "PAID_DEBTS": "Paid debts",
         "NEW_DEBT": "New debt",

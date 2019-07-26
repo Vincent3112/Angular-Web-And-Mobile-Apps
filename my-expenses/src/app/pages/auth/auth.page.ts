@@ -35,6 +35,13 @@ export class AuthPage implements OnInit {
     private translateService: TranslateService,
     private popoverCtrl: PopoverController) {
 
+    this.initForm();
+  }
+
+  ngOnInit() {
+  }
+
+  public initForm() {
     this.form = this.formBuilder.group({
       username: new FormControl('', Validators.compose([
         Validators.required,
@@ -45,9 +52,6 @@ export class AuthPage implements OnInit {
         Validators.minLength(6)
       ]))
     });
-  }
-
-  ngOnInit() {
   }
 
   public async login() {

@@ -26,8 +26,13 @@ export class RegisterPage implements OnInit {
     private afAuth: AngularFireAuth,
     private loginService: LoginService,
     private popoverCtrl: PopoverController,
-    private translateService: TranslateService) {
+    private translateService: TranslateService) { }
 
+  ngOnInit() {
+    this.initForm();
+  }
+
+  public initForm() {
     this.form = this.formBuilder.group({
       username: new FormControl('', Validators.compose([
         Validators.required,
@@ -42,9 +47,6 @@ export class RegisterPage implements OnInit {
         Validators.minLength(6)
       ]))
     });
-  }
-
-  ngOnInit() {
   }
 
   public async register() {

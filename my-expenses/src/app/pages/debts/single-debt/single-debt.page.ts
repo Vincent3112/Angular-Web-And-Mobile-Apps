@@ -23,6 +23,10 @@ export class SingleDebtPage implements OnInit {
     private translateService: TranslateService) { }
 
   ngOnInit() {
+    this.initForm();
+  }
+
+  public initForm() {
     this.debt = this.navParams.get('debt_infos');
     this.form = this.formBuilder.group({
       name: new FormControl(this.debt.name, Validators.compose([
@@ -40,7 +44,8 @@ export class SingleDebtPage implements OnInit {
     });
   }
 
-  closeModal() {
+
+  public closeModal() {
     if (this.form.dirty) {
       this.showToast();
     }

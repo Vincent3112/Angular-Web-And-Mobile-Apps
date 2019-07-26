@@ -17,7 +17,14 @@ export class NewDebtPage implements OnInit {
     private formBuilder: FormBuilder,
     private debtService: DebtService,
     private toastCtrl: ToastController,
-    private translateService: TranslateService) {
+    private translateService: TranslateService) { }
+
+  ngOnInit() {
+    this.initForm();
+  }
+
+
+  public initForm() {
     this.form = this.formBuilder.group({
       name: new FormControl('', Validators.compose([
         Validators.required,
@@ -33,10 +40,6 @@ export class NewDebtPage implements OnInit {
       ]))
     });
   }
-
-  ngOnInit() {
-  }
-
 
   public onCancel() {
     this.navCtrl.navigateBack(`menu/tabs/tabs/debts`)

@@ -19,13 +19,9 @@ export class WelcomePage implements OnInit, OnDestroy {
 
   unPaidDebts: Debt[];
   unPaidCreditors: Creditor[];
-  paidCreditors: Creditor[];
-  paidDebts: Debt[];
   subscriptions: Subscription[] = [];
   creditsAmount: number;
   debtsAmount: number;
-  paidCredits: number;
-  paidDebtsAmount: number;
   sliderConfig = {
     slidesPerView: 1.3,
     spaceBetween: 5,
@@ -36,12 +32,15 @@ export class WelcomePage implements OnInit, OnDestroy {
     private debtService: DebtService,
     private navCtrl: NavController,
     private loginService: LoginService,
-    private popoverCtrl: PopoverController,
     private alertController: AlertController,
     private translateService: TranslateService) {
   }
 
   ngOnInit() {
+    this.getData();
+  }
+
+  public getData() {
     let subOne = this.debtService.getUnPaidDebt().subscribe(
       data => {
         this.unPaidDebts = data;
@@ -57,21 +56,6 @@ export class WelcomePage implements OnInit, OnDestroy {
     )
     this.subscriptions.push(subOne);
 
-    let subFour = this.debtService.getPaidDebt().subscribe(
-      data => {
-        this.paidDebts = data
-        this.loginService.currentUser.paidDebts = [];
-        this.paidDebtsAmount = 0;
-        for (let i = 0; i < this.paidDebts.length; i++) {
-          if (this.paidDebts[i].username === this.loginService.currentUser.username) {
-            this.paidDebtsAmount += this.paidDebts[i].amount;
-            this.loginService.currentUser.paidDebts.push(this.paidDebts[i]);
-          }
-        }
-      }
-    )
-    this.subscriptions.push(subFour);
-
     let subTwo = this.creditorService.getUnPaidCreditors().subscribe(
       data => {
         this.unPaidCreditors = data
@@ -86,23 +70,7 @@ export class WelcomePage implements OnInit, OnDestroy {
       }
     )
     this.subscriptions.push(subTwo);
-
-    let subThree = this.creditorService.getPaidCreditors().subscribe(
-      data => {
-        this.paidCreditors = data
-        this.loginService.currentUser.paidCreditors = [];
-        this.paidCredits = 0;
-        for (let i = 0; i < this.paidCreditors.length; i++) {
-          if (this.paidCreditors[i].username === this.loginService.currentUser.username) {
-            this.paidCredits += this.paidCreditors[i].amount;
-            this.loginService.currentUser.paidCreditors.push(this.paidCreditors[i]);
-          }
-        }
-      }
-    )
-    this.subscriptions.push(subThree);
   }
-
 
   public async onAdd() {
     const alert = await this.alertController.create({
@@ -130,10 +98,7 @@ export class WelcomePage implements OnInit, OnDestroy {
     await alert.present();
   }
 
-
   ngOnDestroy(): void {
     this.subscriptions.forEach(subscrptions => subscrptions.unsubscribe());
   }
-
-
 }

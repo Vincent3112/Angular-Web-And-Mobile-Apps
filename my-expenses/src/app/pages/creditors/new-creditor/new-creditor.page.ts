@@ -17,8 +17,13 @@ export class NewCreditorPage implements OnInit {
     private formBuilder: FormBuilder,
     private creditorService: CreditorService,
     private toastCtrl: ToastController,
-    private translateService: TranslateService) {
+    private translateService: TranslateService) { }
 
+  ngOnInit() {
+    this.initForm();
+  }
+
+  public initForm() {
     this.form = this.formBuilder.group({
       name: new FormControl('', Validators.compose([
         Validators.required,
@@ -34,10 +39,6 @@ export class NewCreditorPage implements OnInit {
       ]))
     });
   }
-
-  ngOnInit() {
-  }
-
 
   public onCancel() {
     this.navCtrl.navigateBack(`menu/tabs/tabs/creditors`)

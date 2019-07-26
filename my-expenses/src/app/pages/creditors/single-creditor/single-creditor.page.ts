@@ -26,6 +26,10 @@ export class SingleCreditorPage implements OnInit {
     private translateService: TranslateService) { }
 
   ngOnInit() {
+    this.initForm();
+  }
+
+  public initForm() {
     this.creditor = this.navParams.get('creditor_infos');
     this.form = this.formBuilder.group({
       name: new FormControl(this.creditor.name, Validators.compose([
@@ -43,7 +47,7 @@ export class SingleCreditorPage implements OnInit {
     });
   }
 
-  closeModal() {
+  public closeModal() {
     if (this.form.dirty) {
       this.showToast();
     }

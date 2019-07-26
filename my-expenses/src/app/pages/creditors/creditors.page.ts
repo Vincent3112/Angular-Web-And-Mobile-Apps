@@ -31,6 +31,10 @@ export class CreditorsPage implements OnInit {
   }
 
   ngOnInit() {
+    this.initData();
+  }
+
+  public initData() {
     let subOne = this.creditorService.getUnPaidCreditors().subscribe(
       data => {
         this.unPaidCreditors = data
