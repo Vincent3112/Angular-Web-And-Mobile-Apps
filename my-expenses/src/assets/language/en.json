@@ -37,7 +37,9 @@
         "USERNAME": "Username",
         "PASSWORD": "Password",
         "CPASSWORD": "Confirm password",
-        "ERROR_MESSAGE1": "Wrong username or password"
+        "ERROR_MESSAGE1": "Wrong username or password",
+        "ERROR_MESSAGE2": "Passwords don't match",
+        "ERROR_MESSAGE3": "Username already in use"
     },
     "CREDITOR": {
         "UNPAID_EMPTY": "There are no unpaid credits recorded",

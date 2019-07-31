@@ -37,7 +37,9 @@
         "USERNAME": "Nom d'utilisateur",
         "PASSWORD": "Mot de passe",
         "CPASSWORD": "Confirmer le mot de passe",
-        "ERROR_MESSAGE1": "Nom d'utilisateur ou mot de passe incorrect"
+        "ERROR_MESSAGE1": "Nom d'utilisateur ou mot de passe incorrect",
+        "ERROR_MESSAGE2": "Les mots de passes ne correspondent pas",
+        "ERROR_MESSAGE3": "Nom d'utilisateur déjà utilisé"
     },
     "CREDITOR": {
         "UNPAID_EMPTY": "Il n'y a aucun créditeur enregistré !",

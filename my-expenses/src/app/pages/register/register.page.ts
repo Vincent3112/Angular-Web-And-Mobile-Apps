@@ -54,29 +54,28 @@ export class RegisterPage implements OnInit {
     this.username = this.form.get('username').value;
     this.password = this.form.get('password').value;
     this.cpassword = this.form.get('cpassword').value;
-    try {
-      const res = await this.afAuth.auth.createUserWithEmailAndPassword(this.username + "@douze.com", this.password);
-      if (res && this.cpassword === this.password) {
-        console.log("User created !");
-        this.loginService.authenticated = true;
-        this.loginService.currentUser = new User(this.username, this.password, [], [], [], []);
-        this.navCtrl.navigateForward('/menu/tabs/tabs/welcome');
-      }
-      if (this.cpassword != this.password) {
-        this.errorMessage = "Les mots de passe ne correspondent pas"
-        this.form.reset();
-        console.log("Passwords don't match")
-      }
+
+    if (this.cpassword != this.password) {
+      this.errorMessage = this.translateService.instant('AUTH.ERROR_MESSAGE2');
+      this.form.reset();
     }
-    catch (err) {
-      console.dir(err)
-      if (err.code === "auth/email-already-in-use") {
-        this.errorMessage = "Nom d'utilisateur déjà utilisé"
-        this.form.reset();
+    else {
+      try {
+        const res = await this.afAuth.auth.createUserWithEmailAndPassword(this.username + "@douze.com", this.password);
+        if (res && this.cpassword === this.password) {
+          this.loginService.authenticated = true;
+          this.loginService.currentUser = new User(this.username, this.password, [], [], [], []);
+          this.navCtrl.navigateForward('/menu/tabs/tabs/welcome');
+        }
+      }
+      catch (err) {
+        if (err.code === "auth/email-already-in-use") {
+          this.errorMessage = this.translateService.instant('AUTH.ERROR_MESSAGE3');
+          this.form.reset();
+        }
       }
     }
   }
-
 
   async openLanguagePopover(ev) {
     const popover = await this.popoverCtrl.create({
