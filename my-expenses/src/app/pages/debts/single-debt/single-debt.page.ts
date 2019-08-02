@@ -31,7 +31,7 @@ export class SingleDebtPage implements OnInit {
     this.form = this.formBuilder.group({
       name: new FormControl(this.debt.name, Validators.compose([
         Validators.required,
-        Validators.minLength(4)
+        Validators.minLength(1)
       ])),
       amount: new FormControl(this.debt.amount, Validators.compose([
         Validators.required,
@@ -39,7 +39,7 @@ export class SingleDebtPage implements OnInit {
       ])),
       description: new FormControl(this.debt.description, Validators.compose([
         Validators.required,
-        Validators.minLength(3)
+        Validators.minLength(1)
       ]))
     });
   }
