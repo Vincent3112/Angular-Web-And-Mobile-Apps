@@ -5,10 +5,8 @@
   </ion-toolbar>
 </ion-header>
 <ion-content padding>
-  <ion-card style="text-align: center;">
-    <ion-card-header>
-      <ion-card-title>{{'AUTH.CONNECTION' | translate}} </ion-card-title>
-    </ion-card-header>
+  <div class="content">
+    <ion-label class="title">{{'AUTH.CONNECTION' | translate}} </ion-label>
     <form [formGroup]="form" padding>
       <mat-grid-list cols="1" rowHeight="60px">
         <mat-grid-tile>
@@ -31,7 +29,7 @@
       </mat-grid-list>
       <ion-label color="danger">{{errorMessage}}</ion-label>
     </form>
-  </ion-card>
+  </div>
   <ion-button shape="round" fill="outline" expand="block" color="primary" routerLink="/register">{{'AUTH.NO_ACCOUNT' | translate}}
   </ion-button>
 </ion-content>
