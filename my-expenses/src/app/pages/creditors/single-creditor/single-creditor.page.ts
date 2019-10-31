@@ -17,6 +17,8 @@ export class SingleCreditorPage implements OnInit {
 
   creditor: Creditor;
 
+  chiffre: number = 3.12;
+
   constructor(private navParams: NavParams,
     private modalCtrl: ModalController,
     private formBuilder: FormBuilder,
@@ -26,6 +28,7 @@ export class SingleCreditorPage implements OnInit {
     private translateService: TranslateService) { }
 
   ngOnInit() {
+    console.log(this.chiffre);
     this.initForm();
   }
 
@@ -38,7 +41,7 @@ export class SingleCreditorPage implements OnInit {
       ])),
       amount: new FormControl(this.creditor.amount, Validators.compose([
         Validators.required,
-        Validators.pattern('^[1-9][0-9]*$')
+        Validators.pattern('^[-+]?(?:[0-9]+,)*[0-9]+(?:\.[0-9]+)?$')
       ])),
       description: new FormControl(this.creditor.description, Validators.compose([
         Validators.required,

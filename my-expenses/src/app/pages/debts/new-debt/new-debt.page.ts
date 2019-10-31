@@ -32,7 +32,7 @@ export class NewDebtPage implements OnInit {
       ])),
       amount: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.pattern('^[1-9][0-9]*$')
+        Validators.pattern('^[-+]?(?:[0-9]+,)*[0-9]+(?:\.[0-9]+)?$')
       ])),
       description: new FormControl('', Validators.compose([
         Validators.required,
