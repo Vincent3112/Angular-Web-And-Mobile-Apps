@@ -30,6 +30,8 @@
         "CONNECTION": "Connexion",
         "SIGNING_IN": "Connexion en cours...",
         "REGISTER": "Inscription",
+        "SIGN_UP_WITH": "M'inscrire avec :",
+        "SIGN_IN_WITH": "Me connecter avec :",
         "SIGN_UP": "Créer mon compte",
         "SIGNING_UP": "Création du compte...",
         "NO_ACCOUNT": "Je n'ai pas de compte",

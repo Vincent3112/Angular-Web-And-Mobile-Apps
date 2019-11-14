@@ -84,4 +84,12 @@ export class RegisterPage implements OnInit {
     });
     await popover.present();
   }
+
+  public signupWithFacebook() {
+    console.log('signup with facebook');
+  }
+
+  public signupWithGoogle() {
+    console.log('signup with google');
+  }
 }

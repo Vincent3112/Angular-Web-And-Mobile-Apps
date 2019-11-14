@@ -82,4 +82,12 @@ export class AuthPage implements OnInit {
     await popover.present();
   }
 
+  public loginWithFacebook() {
+    console.log('login with facebook');
+  }
+
+  public loginWithGoogle() {
+    console.log('login with google');
+  }
+
 }

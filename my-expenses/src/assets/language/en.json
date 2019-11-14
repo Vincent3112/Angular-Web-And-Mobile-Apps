@@ -31,6 +31,8 @@
         "SIGNING_IN": "Signing in...",
         "REGISTER": "Register",
         "SIGN_UP": "Sign up",
+        "SIGN_UP_WITH": "Sign Up with :",
+        "SIGN_IN_WITH": "Sign In with :",
         "SIGNING_UP": "Signing up...",
         "NO_ACCOUNT": "I don't have an account",
         "ALREADY_AN_ACCOUNT": "I already have an account",

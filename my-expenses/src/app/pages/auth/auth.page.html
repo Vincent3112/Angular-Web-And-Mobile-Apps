@@ -4,6 +4,7 @@
     <ion-icon name="flag" (click)="openLanguagePopover($event)" slot="end" class="flag"></ion-icon>
   </ion-toolbar>
 </ion-header>
+<br/>
 <ion-content padding>
   <div class="content">
     <ion-label class="title">{{'AUTH.CONNECTION' | translate}} </ion-label>
@@ -29,7 +30,25 @@
       </mat-grid-list>
       <ion-label color="danger">{{errorMessage}}</ion-label>
     </form>
+    <br/>
+    <ion-label>{{'AUTH.SIGN_IN_WITH' | translate}}</ion-label>
   </div>
+  <mat-grid-list class="fabs" cols="4" rowHeight="1:1">
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile>
+      <ion-fab-button color="tertiary" (click)="loginWithFacebook()">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-fab-button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <ion-fab-button color="danger" (click)="loginWithGoogle()">
+        <ion-icon name="logo-google"></ion-icon>
+      </ion-fab-button>
+    </mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+  </mat-grid-list>
+  <br/>
+  <br/>
   <ion-button shape="round" fill="outline" expand="block" color="primary" routerLink="/register">{{'AUTH.NO_ACCOUNT' | translate}}
   </ion-button>
 </ion-content>
