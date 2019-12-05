@@ -9,6 +9,7 @@ import { Debt } from 'src/app/models/debt';
 import { TranslateService } from '@ngx-translate/core';
 import { LanguagePopoverPage } from '../language-popover/language-popover.page';
 import { PopoverController } from '@ionic/angular';
+import * as firebase from 'firebase/app';
 
 
 
@@ -87,7 +88,25 @@ export class AuthPage implements OnInit {
   }
 
   public loginWithGoogle() {
+    let username;
     console.log('login with google');
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(
+      () => {
+        this.loginService.authenticated = true;
+        this.afAuth.authState.subscribe(
+          data => {
+            username = data.email;
+            this.loginService.currentUser = new User(username,
+              this.password,
+              this.unPaidDebts,
+              this.paidDebts,
+              this.unPaidCredits,
+              this.paidCredits);
+          }
+        );
+        this.navCtrl.navigateForward('/menu/tabs/tabs/welcome');
+      }
+    );
   }
 
 }
